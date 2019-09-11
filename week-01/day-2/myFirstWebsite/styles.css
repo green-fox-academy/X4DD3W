@@ -1,0 +1,76 @@
+body{
+  background-image: url("./assets/background.png");
+  font-family: "Bitter";
+  font-weight: normal;
+  font-style: normal;
+  margin: auto;
+  padding: 0;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  background-color: #333333;
+  position: fixed;
+  top: 0px;
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+li a{
+  display: block;
+  color: #ff0099;
+  text-align: center;
+  padding: 20px 15px;
+  text-decoration: underline;
+  float: right;
+  /* emiatt irtam be forditva a listaelemeket... */
+}
+
+#logo{
+  float: left;
+  padding-top: 15px;
+}
+
+.home, .wiki{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+p{
+  font-family: "Consolas";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.home h1{
+  font-size: 52px;
+  padding: 120px 0px 10px;
+}
+
+.home h3{
+  color: #ff0099;
+}
+
+.home p{
+  font-size: 20px;
+  font-weight: normal;
+}
+
+#wiki, .wiki h2{
+  text-align: center;
+  margin: 38px;
+}
+
+h2{
+  font-size: 32px;
+}
+
+h3{
+  font-size: 22px;
+}

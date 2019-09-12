@@ -7,9 +7,9 @@ public class OddEven {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please, give me a number: ");
+        System.out.println("Please, give me an integer: ");
         int number = input.nextInt();
-        if (number % 2 == 0) {
+        if (number % 2 == 0) {  // A nulla páros.
             System.out.println("Even");
         }
         else {

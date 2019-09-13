@@ -1,14 +1,63 @@
-/* * {
+* {
     margin: 0px;
     padding: 0px;
-} */
-
-/* Ezzel eltünteti az elején a rést, de vele a margint is. */
+} /* Ezzel eltünteti az elején a rést, de vele a margint is. */
 
 body{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, serif;
 }
 
+div{
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 20px 0px;
+}
+
+h1, h2, h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#title{
+    margin: auto;
+    overflow: hidden;
+    position: fixed;
+    background-color: grey;
+    top: 0px;
+    width: 100%;
+    padding: 5px 10%;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+
+p{
+    border: solid 2px black;
+    text-align: justify;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+b{
+    font-size: 25px;
+}
+
+#submit{
+    font-size: 28px;
+    border: solid 2px black;
+    border-radius: 10%;
+    margin-top: 10px;
+}
+
+#cheat{
+    margin-top: 100px;
+}
+
+
+/* Here are my old code: */
+/* 
 div{
     padding-left: 10%;
     padding-right: 10%;
@@ -33,6 +82,7 @@ h3{
 
 textarea{
     resize: none;
+    width: 100%;
 }
 
 p{
@@ -53,4 +103,4 @@ p{
     font-size: 30px;
     border: dotted 2px purple;
     border-radius: 25%;
-}
+} */

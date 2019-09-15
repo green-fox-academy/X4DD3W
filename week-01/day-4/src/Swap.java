@@ -3,14 +3,14 @@ public class Swap {
         int a = 123;
         int b = 526;
 
-        System.out.println("A csere előtt a = " + a);
-        System.out.println("A csere előtt b = " + b);
+        System.out.println("Before swap, a = " + a);
+        System.out.println("Before swap, b = " + b);
 
         int c = a;
         a = b;
         b = c;
 
-        System.out.println("A csere után a = " + a);
-        System.out.println("A csere után b = " + b);
+        System.out.println("After swap, a = " + a);
+        System.out.println("After swap, b = " + b);
     }
 }

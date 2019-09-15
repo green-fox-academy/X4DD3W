@@ -7,7 +7,7 @@ public class DefineBasicInfo {
 
         System.out.println("My name is " + name + ", " + age + " years old. My weight is " + weight + " kg.");
         if (craziness) {
-            System.out.println("I am crazy.");
+            System.out.println("I am a bit crazy.");
         } else {
             System.out.println("I am normal.");
         }

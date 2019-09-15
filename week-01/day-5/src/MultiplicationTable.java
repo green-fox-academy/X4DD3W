@@ -1,9 +1,11 @@
 import java.util.Scanner;
 public class MultiplicationTable {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Create a program that asks for a number and prints the multiplication table with that number
+
+        Scanner multi = new Scanner(System.in);
         System.out.println("Please, give me a number: ");
-        int a = scanner.nextInt();
+        int a = multi.nextInt();
 
         int b;
 

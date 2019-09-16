@@ -1,14 +1,6 @@
 public class DrawChessTable {
     public static void main(String[] args) {
-        // Create a program that draws a chess table like this
-        // % % % %
-        //  % % % %
-        // % % % %
-        //  % % % %
-        // % % % %
-        //  % % % %
-        // % % % %
-        //  % % % %
+        // Create a program that draws a chess table
 
         String row1 = "  ██  ██  ██  ██";
         String row2 = "██  ██  ██  ██  ";

@@ -17,6 +17,6 @@ public class Sum {
         for (int i = 0; i < y; i++) {
             z = z + (y - i);                // 3. "y"-t használja a "z" létrehozásához
         }
-        return z;                           // 4. A "z" nevű  változót értékét adja a sum(input) végső eredményének,
-    }                                       // ami "x" névvel fut majd.
+        return z;                           // 4. A "z" nevű  változó értékét adja a sum(input) végső eredményének,
+    }                                       // ami "x" névvel fut majd a 11-12. sorban (amikor kiírjuk az eredményt).
 }

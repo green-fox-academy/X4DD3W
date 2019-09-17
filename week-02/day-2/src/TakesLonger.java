@@ -10,8 +10,8 @@ public class TakesLonger {
         String always = "always takes longer than ";
         int a = quote.indexOf("you");
 
-        StringBuilder troll = new StringBuilder(quote);
-        troll.insert(a, always);
+        StringBuilder troll = new StringBuilder(quote);     // quote: az, amivel mókolni szeretnék
+        troll.insert(a, always);                            // troll: a fent megadott quote ezen a néven fut tovább
 
         System.out.println(troll);
     }

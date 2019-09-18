@@ -2,26 +2,22 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PositionSquare {
+public class CenterBoxFunction {
     public static void mainDraw(Graphics graphics){
-        // create a function that draws one square and takes 3 parameters:
-        // the x and y coordinates of the square's top left corner and the graphics
-        // and draws a 50x50 square from that point.
+        // create a function that draws one square and takes 2 parameters:
+        // the square size and the graphics and draws a square of that size to the center of the canvas.
         // draw 3 squares with that function.
         // avoid code duplication.
 
         for (int i = 0; i < 3; i++) {
-            randomizer(graphics);
-
+            threeSquare(graphics);
         }
     }
 
-    public static void randomizer(Graphics color) {
+    public static void threeSquare(Graphics color) {
         int x = (int)(Math.random() * (WIDTH / 2));
-        int y = (int)(Math.random() * (HEIGHT / 2));
-
         color.setColor(new Color(colorRandomizer(0), colorRandomizer(0), colorRandomizer(0)));
-        color.drawRect(x, y, 50, 50);
+        color.drawRect(((WIDTH / 2) - (x / 2)), ((HEIGHT / 2) - ( x / 2)), x, x);
     }
 
     public static int colorRandomizer(int rgb) {

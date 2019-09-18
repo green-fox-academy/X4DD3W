@@ -3,23 +3,28 @@ import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class FourRectangles {
-
     public static void mainDraw(Graphics graphics) {
         // Draw four different size and color rectangles.
         // Avoid code duplication.
 
         for (int i = 0; i < 4; i++) {
-            graphics.setColor(new Color(colorRandomizer(0), colorRandomizer(0), colorRandomizer(0)));
-            graphics.drawRect(sizeRandomizer(0), sizeRandomizer(0), sizeRandomizer(0), sizeRandomizer(0));
+            randomizer(graphics);
+
         }
+    }
+
+    public static void randomizer(Graphics color) {
+        int x = (int)(Math.random() * (WIDTH / 2));
+        int y = (int)(Math.random() * (HEIGHT / 2));
+        int w = (int)(Math.random() * (WIDTH / 2));
+        int h = (int)(Math.random() * (HEIGHT / 2));
+
+        color.setColor(new Color(colorRandomizer(0), colorRandomizer(0), colorRandomizer(0)));
+        color.drawRect(x, y, w, h);
     }
 
     public static int colorRandomizer(int rgb) {
         return (int)(Math.random() * 256);
-    }
-
-    public static int sizeRandomizer(int canvas) {
-        return (int)(Math.random() * 320);
     }
 
     // region Don't touch the code below

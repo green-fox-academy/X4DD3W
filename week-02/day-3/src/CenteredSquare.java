@@ -2,24 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+public class CenteredSquare {
+
     public static void mainDraw(Graphics graphics) {
-        // Create a function that draws a single line and takes 3 parameters:
-        // The x and y coordinates of the line's starting point and the graphics
-        // and draws a line from that point to the center of the canvas.
-        // Draw at least 3 lines with that function using a loop.
+        // Draw a green 10x10 square to the canvas' center.
 
-        int x = 0;
-        int y = 0;
-        singleLine(x, y, graphics);
+        graphics.setColor(Color.GREEN);
+        graphics.drawRect(155, 155, 10, 10);
 
-    }
-
-    public static void singleLine(int a, int b, Graphics center) {
-        for (int i = 0; i < 3; i++) {
-            center.setColor(Color.RED);
-            center.drawLine((a * i), (b + 10 * i), 160, 160);
-        }
     }
 
     // region Don't touch the code below

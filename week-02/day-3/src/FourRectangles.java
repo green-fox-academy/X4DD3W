@@ -2,24 +2,24 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
+public class FourRectangles {
+
     public static void mainDraw(Graphics graphics) {
-        // Create a function that draws a single line and takes 3 parameters:
-        // The x and y coordinates of the line's starting point and the graphics
-        // and draws a line from that point to the center of the canvas.
-        // Draw at least 3 lines with that function using a loop.
+        // Draw four different size and color rectangles.
+        // Avoid code duplication.
 
-        int x = 0;
-        int y = 0;
-        singleLine(x, y, graphics);
-
+        for (int i = 0; i < 4; i++) {
+            graphics.setColor(new Color(colorRandomizer(0), colorRandomizer(0), colorRandomizer(0)));
+            graphics.drawRect(sizeRandomizer(0), sizeRandomizer(0), sizeRandomizer(0), sizeRandomizer(0));
+        }
     }
 
-    public static void singleLine(int a, int b, Graphics center) {
-        for (int i = 0; i < 3; i++) {
-            center.setColor(Color.RED);
-            center.drawLine((a * i), (b + 10 * i), 160, 160);
-        }
+    public static int colorRandomizer(int rgb) {
+        return (int)(Math.random() * 256);
+    }
+
+    public static int sizeRandomizer(int canvas) {
+        return (int)(Math.random() * 320);
     }
 
     // region Don't touch the code below

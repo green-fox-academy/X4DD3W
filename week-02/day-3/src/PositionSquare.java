@@ -2,24 +2,29 @@ import javax.swing.*;
 import java.awt.*;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class GoToCenter {
-    public static void mainDraw(Graphics graphics) {
-        // Create a function that draws a single line and takes 3 parameters:
-        // The x and y coordinates of the line's starting point and the graphics
-        // and draws a line from that point to the center of the canvas.
-        // Draw at least 3 lines with that function using a loop.
+public class PositionSquare {
+    public static void mainDraw(Graphics graphics){
+        // create a function that draws one square and takes 3 parameters:
+        // the x and y coordinates of the square's top left corner and the graphics
+        // and draws a 50x50 square from that point.
+        // draw 3 squares with that function.
+        // avoid code duplication.
 
-        int x = 0;
-        int y = 0;
+        int x = (int)(Math.random() * (WIDTH / 2));
+        int y = (int)(Math.random() * (HEIGHT / 2));
         singleLine(x, y, graphics);
 
     }
 
     public static void singleLine(int a, int b, Graphics center) {
         for (int i = 0; i < 3; i++) {
-            center.setColor(Color.RED);
-            center.drawLine((a * i), (b + 10 * i), 160, 160);
+            center.setColor(new Color(colorRandomizer(i), colorRandomizer(i), colorRandomizer(i)));     // colorRandomizer is optional
+            center.drawOval(a, b, 50, 50);
         }
+    }
+
+    public static int colorRandomizer(int rgb) {
+        return (int)(Math.random() * 256);
     }
 
     // region Don't touch the code below

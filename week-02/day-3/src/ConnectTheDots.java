@@ -18,7 +18,6 @@ public class ConnectTheDots {
         graphics.setColor(new Color(0x008E03));
         dotLiner(box, graphics);
         graphics.drawLine(box[3][0], box[3][1], box[0][0], box[0][1]);
-        graphics.setColor(new Color(0x920000));
         dotLiner(smg, graphics);
 
     }

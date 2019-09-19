@@ -11,25 +11,23 @@ public class ConnectTheDots {
         // Connect these: {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70},
         // {120, 100}, {85, 130}, {50, 100}}
 
-        //                  0           1           2           3
         int[][] box = {{10, 10}, {290,  10}, {290, 290}, {10, 290}};
-        int[][] smg = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
+        int[][] fox = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70}, {120, 100}, {85, 130}, {50, 100}};
 
         graphics.setColor(new Color(0x008E03));
         dotLiner(box, graphics);
         graphics.drawLine(box[3][0], box[3][1], box[0][0], box[0][1]);
-        dotLiner(smg, graphics);
-
+        dotLiner(fox, graphics);
     }
 
     public static void dotLiner(int[][] x, Graphics trollo) {
         for (int i = 0; i < x.length - 1; i++) {
             trollo.drawLine(x[i][0], x[i][1], x[i + 1][0], x[i + 1][1]);
-            /*   i;
-            00 01 10 11;
-            10 11 20 21;
-            20 21 30 31;
-            30 31 00 01;   */
+            /*  x1,y1,x2,y2
+                00 01 10 11;
+                10 11 20 21;
+                20 21 30 31;
+                30 31 00 01;   */
         }
     }
 

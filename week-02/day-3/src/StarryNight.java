@@ -23,7 +23,7 @@ public class StarryNight {
     }
 
     public static int greyRandomizer(int rgb) {
-        return (int)(Math.random() * 256);
+            return (int)(Math.random() * 256);
     }
 
     public static int sizeRandomizer(int rgb) {

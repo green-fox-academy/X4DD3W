@@ -6,17 +6,17 @@ public class Reverse {
 
         String reversed = ".eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI";
 
-        System.out.println(fordito(reversed));
-        System.out.println(fordito2(reversed));
+        System.out.println(rev1(reversed));
+        System.out.println(rev2(reversed));
 
     }
 
-    public static String fordito(String original) {
+    public static String rev1(String original) {
         StringBuilder one = new StringBuilder(original);
         return one.reverse().toString();
     }
 
-    public static String fordito2(String original) {
+    public static String rev2(String original) {
         String[] reverse = new String [original.length()];
 
         for (int i = 0; i < original.length(); i++) {

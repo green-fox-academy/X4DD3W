@@ -48,6 +48,16 @@ public class ListIntroduction1 {
             System.out.println(i);
         }
 
+        // Other method, thx Vivi
+        ArrayList<String> reversedList = new ArrayList<>();
+        for (int i = names.size() - 1; i >= 0 ; i--) {
+            reversedList.add(names.get(i));
+        }
+        names = reversedList;
+        for (String reversedWord : names){
+            System.out.println(reversedWord);
+        }
+
         // Remove all elements
         names.clear();                          // Bye-bye, Amanda and William
     }

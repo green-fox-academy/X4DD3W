@@ -11,7 +11,7 @@ public class Factorio {
         int x = sum(input.nextInt());
         System.out.println(x);
     }
-
+        
     public static int sum(int y) {
         int z = 1;
         for (int i = 0; i < y; i++) {

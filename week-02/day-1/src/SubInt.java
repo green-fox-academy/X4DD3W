@@ -28,7 +28,7 @@ public class SubInt {
 
     for (int i = 0; i < where.length; i++) {
       if (texty[i].contains(String.valueOf(what))) {
-        System.out.print(i + ", ");
+        System.out.print(i + " ");
       }
     }
     return "LOL";

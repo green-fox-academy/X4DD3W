@@ -12,7 +12,8 @@ public class Sum {
         System.out.println(x);              // 5. Kiírja az "x" értékét
     }
 
-    public static int sum(int y) {          // 2. "y" néven átveszi a sum(input)ban megadott értéket, és azzal dolgozik
+    public static int sum(
+        int y) {          // 2. "y" néven átveszi a sum(input)ban megadott értéket, és azzal dolgozik
         int z = 0;
         for (int i = 0; i < y; i++) {
             z = z + (y - i);                // 3. "y"-t használja a "z" létrehozásához

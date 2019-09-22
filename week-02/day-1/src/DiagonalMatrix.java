@@ -8,11 +8,10 @@ public class DiagonalMatrix {
     //   0 0 0 1
     // - Print this two dimensional array to the output
 
-    int[][] numbers = new int[4][5];
+    int[][] numbers = new int[4][4];
 
-    for (int i = 0; i < numbers.length; i++) {
-      for (int j = 0; j < numbers[i].length;
-          j++) {       // originally j < numbers.length didn't worked if numbers[][x] were bigger
+    for (int i = 0; i < numbers.length; i++) { // originally j < numbers.length didn't worked if numbers[][x] were bigger
+      for (int j = 0; j < numbers[i].length; j++) {
         if (i == j) {
           numbers[i][j] = 1;
         } else {

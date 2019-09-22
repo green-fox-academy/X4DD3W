@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Calculator {
+
   public static void main(String... args) {
     // region Create a simple calculator application which reads the parameters from the prompt
     // and prints the result to the prompt.
@@ -26,22 +27,22 @@ public class Calculator {
     int first = input.nextInt();
     int second = input.nextInt();
 
-    System.out.println(calculate(tool, first, second));
+    System.out.println(calculator(tool, first, second));
 
   }
 
-  public static int calculate(String oper, int x, int y) {
-    // +, -, *, /, % and it should support two operands.
+  public static int calculator(String mode, int x, int y) {
+    // 'if' statement replacable with 'switch' statement
     int result = 0;
-    if (oper.equals("+")) {
+    if (mode.equals("+")) {
       result = x + y;
-    } else if (oper.equals("-")) {
+    } else if (mode.equals("-")) {
       result = x - y;
-    } else if (oper.equals("*")) {
+    } else if (mode.equals("*")) {
       result = x * y;
-    } else if (oper.equals("/")) {
+    } else if (mode.equals("/")) {
       result = x / y;
-    } else if (oper.equals("%")) {
+    } else if (mode.equals("%")) {
       result = x % y;
     }
     return result;

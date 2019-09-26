@@ -11,7 +11,7 @@ public class Sharpie {
     this.width = width;
   }
 
-  public void use(){
+  public void use() {
     inkAmount -= 1;
   }
 

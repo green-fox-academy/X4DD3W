@@ -3,23 +3,23 @@ package sharpie;
 public class Main {
 
   public static void main(String[] args) {
-    Sharpie peter = new Sharpie("blue", 5.0f);
-    Sharpie thomas = new Sharpie("yellow", 4.2f);
+    Sharpie first = new Sharpie("blue", 5.0f);
+    Sharpie second = new Sharpie("yellow", 4.2f);
 
     for (int i = 0; i < 100; i++) {
-      peter.use();
+      first.use();
     }
 
-    SharpieSet moreShark = new SharpieSet();
-    moreShark.list.add(0, peter);
-    moreShark.list.add(1, thomas);
+    SharpieSet moreSharpie = new SharpieSet();
+    moreSharpie.list.add(0, first);
+    moreSharpie.list.add(1, second);
 
-    System.out.println(thomas.inkAmount);
-    System.out.println(moreShark.countUsable(thomas));
-    System.out.println(peter.inkAmount);
-    System.out.println(moreShark.countUsable(peter));
+    System.out.println(second.inkAmount);
+    System.out.println(moreSharpie.countUsable(second));
+    System.out.println(first.inkAmount);
+    System.out.println(moreSharpie.countUsable(first));
 
-    moreShark.removeTrash();
+    moreSharpie.removeTrash();
 
   }
 }

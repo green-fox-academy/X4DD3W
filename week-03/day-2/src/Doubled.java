@@ -29,17 +29,18 @@ public class Doubled {
   }
 
   private static List decryptor(String duplicated) throws IOException {
-      List<String> zenOfPython = Files.readAllLines(Paths.get(duplicated));  // it works only with "throws IOEXception, WHY?"
-      List<String> decryptedFile = new ArrayList<>();
-      String decryptedTemp = "";
+    List<String> zenOfPython = Files
+        .readAllLines(Paths.get(duplicated));  // it works only with "throws IOEXception, WHY?"
+    List<String> decryptedFile = new ArrayList<>();
+    String decryptedTemp = "";
 
-      for (int i = 0; i < zenOfPython.size(); i++) {
-        for (int j = 0; j < zenOfPython.get(i).length(); j += 2) {
-          decryptedTemp = decryptedTemp + zenOfPython.get(i).charAt(j);
-        }
-        decryptedFile.add(decryptedTemp);
-        decryptedTemp = "";
+    for (int i = 0; i < zenOfPython.size(); i++) {
+      for (int j = 0; j < zenOfPython.get(i).length(); j += 2) {
+        decryptedTemp = decryptedTemp + zenOfPython.get(i).charAt(j);
       }
-      return decryptedFile;
+      decryptedFile.add(decryptedTemp);
+      decryptedTemp = "";
+    }
+    return decryptedFile;
   }
 }

@@ -6,12 +6,11 @@ public class Fibonacci {
     // and it happens to have a recursive definition.
     // The first two values in the sequence are 0 and 1 (essentially 2 base cases).
     // Each subsequent value is the sum of the previous two values,
-    // so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 and so on.
+    // so the whole sequence is: (0,) 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233 and so on.
     // Define a recursive fibonacci(n) method that returns the nth fibonacci number,
     // with n=0 representing the start of the sequence.
 
-    int x = 13;
-    System.out.println(fibonacci(x - 1));
+    System.out.println(fibonacci(13));
 
   }
 

@@ -16,7 +16,7 @@ public class Pirates {
     if (!alive) {
       System.out.println("The pirates is dead.");
     } else {
-      drunkLevel += 1;
+      drunkLevel++;
     }
   }
 

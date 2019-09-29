@@ -5,21 +5,20 @@ public class BattleApp {
   public static void main(String[] args) {
 
     Pirates jack = new Pirates();
-    Pirates william = new Pirates();
+    for (int i = 0; i < 5; i++) {
+      jack.drinkSomeRum();
+    }
+    jack.howsItGoingMate();
 
     Ship flyingDutchman = new Ship();
     flyingDutchman.fillShip();
+    flyingDutchman.shipStatus();
 
     Ship dyingGull = new Ship();
     dyingGull.fillShip();
+    dyingGull.shipStatus();
 
-    jack.drinkSomeRum();
-    jack.drinkSomeRum();
-    jack.drinkSomeRum();
-    jack.drinkSomeRum();
-    jack.drinkSomeRum();
-    jack.howsItGoingMate();
-
+    Pirates william = new Pirates();
     william.brawl(jack);
 
     flyingDutchman.battle(dyingGull);

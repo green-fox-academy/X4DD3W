@@ -48,7 +48,7 @@ public class Ship {
       loserShip.team.get(i).die();
     }
   }
-
+  // randomLosses and partyTime iterates through the first i members... is it OK, or not?
   public void partyTime(Ship winnerShip) {
     int spontaneousRum = random.nextInt(winnerShip.team.size());
     winnerShip.captain.drinkSomeRum();
@@ -64,6 +64,7 @@ public class Ship {
     } else {
       System.out.println("dead.");
     }
+    // Ez így szabályos...? :)
     System.out.println("There is " + (shipScore(this) + this.captain.drunkLevel)
         + " pirates are alive.");
   }

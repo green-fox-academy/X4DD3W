@@ -23,8 +23,6 @@ public class ReversedOrder {
         Files.write(filepath, finalFile);
         System.out.println("Decryption was successful!");
       }
-/*  } catch (StringIndexOutOfBoundsException a) {
-      System.out.println("String index out of range!");*/
     } catch (IOException e) {
       System.out.println("Unable to handle the file.");
     }

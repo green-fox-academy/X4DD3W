@@ -30,6 +30,16 @@ public class Ship {
     return alivePirate - ship.captain.drunkLevel;
   }
 
+  public int alivePirates(Ship ship) {
+    int alivePirate = 0;
+    for (int i = 0; i < ship.team.size(); i++) {
+      if (ship.team.get(i).alive) {
+        alivePirate++;
+      }
+    }
+    return alivePirate;
+  }
+
   public boolean battle(Ship otherShip) {
     if (this.shipScore(this) > otherShip.shipScore(otherShip)) {
       randomLosses(otherShip);
@@ -48,7 +58,7 @@ public class Ship {
       loserShip.team.get(i).die();
     }
   }
-  // randomLosses and partyTime iterates through the first i members... is it OK, or not?
+
   public void partyTime(Ship winnerShip) {
     int spontaneousRum = random.nextInt(winnerShip.team.size());
     winnerShip.captain.drinkSomeRum();
@@ -65,7 +75,7 @@ public class Ship {
       System.out.println("dead.");
     }
     // Ez így szabályos...? :)
-    System.out.println("There is " + (shipScore(this) + this.captain.drunkLevel)
+    System.out.println("There is " + alivePirates(this)
         + " pirates are alive.");
   }
 }

@@ -9,15 +9,15 @@ public class Animal {
   }
 
   public void eat() {
-    hunger -= 1;
+    hunger--;
   }
 
   public void drink() {
-    thirst -= 1;
+    thirst--;
   }
 
   public void play() {
-    hunger += 1;
-    thirst += 1;
+    hunger++;
+    thirst++;
   }
 }

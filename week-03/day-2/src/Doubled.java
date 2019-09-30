@@ -30,7 +30,7 @@ public class Doubled {
 
   private static List decryptor(String duplicated) throws IOException {
     List<String> zenOfPython = Files
-        .readAllLines(Paths.get(duplicated));  // it works only with "throws IOEXception, WHY?"
+        .readAllLines(Paths.get(duplicated));  // it must put in try/catch, or declare "throws exceptionName"
     List<String> decryptedFile = new ArrayList<>();
     String decryptedTemp = "";
 

@@ -1,10 +1,10 @@
 package greenfoxexercise;
 
-public class Mentor {
+public class Mentor extends Person {
 
-  String name;
-  int age;
-  String gender;
+  /* String name;
+   int age;
+   String gender;*/
   String level;
 
   public Mentor(String name, int age, String gender, String level) {

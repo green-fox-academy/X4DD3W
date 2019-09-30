@@ -1,10 +1,10 @@
 package greenfoxexercise;
 
-public class Sponsor {
+public class Sponsor extends Person {
 
-  String name;
-  int age;
-  String gender;
+  /* String name;
+   int age;
+   String gender;*/
   String company;
   int hiredStudents;
 

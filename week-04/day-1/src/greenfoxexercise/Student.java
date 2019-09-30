@@ -1,10 +1,10 @@
 package greenfoxexercise;
 
-public class Student {
+public class Student extends Person {
 
-  String name;
+  /*String name;
   int age;
-  String gender;
+  String gender;*/
   String previousOrganization;
   int skippedDays;
 

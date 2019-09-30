@@ -8,6 +8,7 @@ public class Flower extends Plant {
     this.type = "Flower";
   }
 
+  // 4.3.1 It shows that the Flower needs water or not
   @Override
   public boolean needsWater() {
     return thirsty < 5;

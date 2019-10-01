@@ -5,6 +5,7 @@ public class Student extends Person implements Cloneable {
   // 1. Implements Cloneable
   // 2. Override clone() (see below)
   // 3. Create a variable johnTheClone with using clone() method on john
+  // Ty, Szabi!
 
   String previousOrganization;
   int skippedDays;

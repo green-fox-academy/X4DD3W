@@ -7,7 +7,7 @@ public class Violin extends StringedInstrument{
 
   public Violin(int numberOfStrings) {
     super.numberOfStrings = 4;
-    System.out.print(name + ", a " + numberOfStrings + "-stringed instrument that goes " );
+    System.out.print(name + "Violin, a " + numberOfStrings + "-stringed instrument that goes " );
     sound();
   }
 

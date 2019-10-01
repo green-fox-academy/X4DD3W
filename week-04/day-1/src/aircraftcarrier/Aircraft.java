@@ -17,11 +17,12 @@ public class Aircraft {
     return damageDealt;
   }
 
-  public void refill(int useAllAmmo) {
+  public int refill(int useAllAmmo) {
     do {
       useAllAmmo--;
-      ammo++;
-    } while (ammo == maxAmmo);
+      this.ammo++;
+    } while (this.ammo < this.maxAmmo);
+    return useAllAmmo;
   }
 
   public String getType() {

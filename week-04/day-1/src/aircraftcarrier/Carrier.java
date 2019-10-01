@@ -73,10 +73,9 @@ public class Carrier {
 
   public int neededAmmo() {
     int ammoCounter = 0;
-    // List<Aircraft> fillableAircrafts = new ArrayList<>();
     for (int i = 0; i < carrier.size() - 1; i++) {
       if (carrier.get(i).ammo < carrier.get(i).maxAmmo) {
-        ammoCounter = carrier.get(i).maxAmmo - carrier.get(i).ammo;
+        ammoCounter += (carrier.get(i).maxAmmo - carrier.get(i).ammo);
       }
     }
     return ammoCounter;

@@ -16,7 +16,7 @@ public class SumTest {
   }
 
   @Test
-  public void sum_Empty_ReturnsZero() {
+  public void sum_EmptyList_ReturnsZero() {
     Sum test = new Sum();
     ArrayList<Integer> testList = new ArrayList<>(Arrays.asList());
     int result = test.sum(testList);
@@ -24,7 +24,7 @@ public class SumTest {
   }
 
   @Test
-  public void sum_OneElement_ReturnsSeven() {
+  public void sum_OneElementInList_ReturnsSeven() {
     Sum test = new Sum();
     ArrayList<Integer> testList = new ArrayList<>(Arrays.asList(7));
     int result = test.sum(testList);
@@ -32,10 +32,10 @@ public class SumTest {
   }
 
   @Test
-  public void sum_Normal_ReturnsNull() {
+  public void sum_EmptyList_ReturnsNull() {
     Sum test = new Sum();
-    ArrayList<Integer> testList = new ArrayList<>();
-    Integer result = null;
+    ArrayList<Integer> testList = null;
+    Integer result = test.sum(testList);
     assertEquals(result, null);
   }
 

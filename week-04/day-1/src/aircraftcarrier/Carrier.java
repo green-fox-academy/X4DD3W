@@ -12,7 +12,7 @@ public class Carrier {
   Random random = new Random();
 
   public Carrier(int ammoStorage, int hp) {
-    List<Aircraft> list = new ArrayList<>();
+    // List<Aircraft> list = new ArrayList<>();
     this.ammoStorage = ammoStorage;
     this.healthPoints = hp;
   }
@@ -29,26 +29,24 @@ public class Carrier {
   }
 
   public void fill() {
-    // If there is not enough ammo then it should start to fill the aircrafts with priority first
     try {
-      if (neededAmmo() > ammoStorage) {
+      if (neededAmmo() > this.ammoStorage) {
         for (int i = 0; i < carrier.size(); i++) {
           if (carrier.get(i).isPriority()) {
-            carrier.get(i).refill(ammoStorage);
+            carrier.get(i).refill(this.ammoStorage);
           }
         }
       } else {
         for (int i = 0; i < carrier.size(); i++) {
-          carrier.get(i).refill(ammoStorage);
+          carrier.get(i).refill(this.ammoStorage);
+          // Here should be the ammoStorage's amount lesser after the refill()...
         }
       }
-      // If there is no ammo when this method is called, it should throw an exception
     } catch (Exception e) {
       System.out.println("There is no ammo!");
     }
   }
 
-  // It should take another carrier as a reference parameter and fire all the ammo from the aircrafts to it, then subtract all the damage from its health points
   public void fight(Carrier anotherCarrier) {
     int allIn = 0;
     for (int i = 0; i < this.carrier.size(); i++) {
@@ -84,7 +82,7 @@ public class Carrier {
   public int carrierTotalDamage() {
     int totalDamage = 0;
     for (int i = 0; i < this.carrier.size(); i++) {
-      totalDamage = totalDamage + this.carrier.get(i).fight();
+      totalDamage += (this.carrier.get(i).damage * this.carrier.get(i).ammo);
     }
     return totalDamage;
   }

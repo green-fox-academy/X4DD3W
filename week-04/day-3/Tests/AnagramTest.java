@@ -39,7 +39,7 @@ public class AnagramTest {
     boolean result = test.anagramOrNot(one, two);
     assertEquals(result, false);
   }
-  
+
 }
 
 

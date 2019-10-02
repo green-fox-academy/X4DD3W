@@ -32,13 +32,13 @@ public class Carrier {
     // If there is not enough ammo then it should start to fill the aircrafts with priority first
     try {
       if (neededAmmo() > ammoStorage) {
-        for (int i = 0; i < carrier.size() - 1; i++) {
+        for (int i = 0; i < carrier.size(); i++) {
           if (carrier.get(i).isPriority()) {
             carrier.get(i).refill(ammoStorage);
           }
         }
       } else {
-        for (int i = 0; i < carrier.size() - 1; i++) {
+        for (int i = 0; i < carrier.size(); i++) {
           carrier.get(i).refill(ammoStorage);
         }
       }
@@ -51,7 +51,7 @@ public class Carrier {
   // It should take another carrier as a reference parameter and fire all the ammo from the aircrafts to it, then subtract all the damage from its health points
   public void fight(Carrier anotherCarrier) {
     int allIn = 0;
-    for (int i = 0; i < this.carrier.size() - 1; i++) {
+    for (int i = 0; i < this.carrier.size(); i++) {
       allIn = allIn + this.carrier.get(i).fight();
     }
     anotherCarrier.healthPoints -= allIn;
@@ -65,7 +65,7 @@ public class Carrier {
           "HP: " + healthPoints + ", Aircraft count: " + carrier.size() + ", Ammo Storage: "
               + ammoStorage + ", Total damage: " + carrierTotalDamage());
       System.out.println("Aircrafts:");
-      for (int i = 0; i < carrier.size() - 1; i++) {
+      for (int i = 0; i < carrier.size(); i++) {
         carrier.get(i).getStatus();
       }
     }
@@ -73,7 +73,7 @@ public class Carrier {
 
   public int neededAmmo() {
     int ammoCounter = 0;
-    for (int i = 0; i < carrier.size() - 1; i++) {
+    for (int i = 0; i < carrier.size(); i++) {
       if (carrier.get(i).ammo < carrier.get(i).maxAmmo) {
         ammoCounter += (carrier.get(i).maxAmmo - carrier.get(i).ammo);
       }
@@ -83,7 +83,7 @@ public class Carrier {
 
   public int carrierTotalDamage() {
     int totalDamage = 0;
-    for (int i = 0; i < this.carrier.size() - 1; i++) {
+    for (int i = 0; i < this.carrier.size(); i++) {
       totalDamage = totalDamage + this.carrier.get(i).fight();
     }
     return totalDamage;

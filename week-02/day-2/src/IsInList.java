@@ -13,12 +13,7 @@ public class IsInList {
 
   }
 
-  public static int checkNums(ArrayList<Integer> what, ArrayList where) {
-    if (where.containsAll(what)) {
-      System.out.println(true);
-    } else {
-      System.out.println(false);
-    }
-    return 0;
+  public static boolean checkNums(ArrayList<Integer> what, ArrayList where) {
+    return where.containsAll(what);
   }
 }

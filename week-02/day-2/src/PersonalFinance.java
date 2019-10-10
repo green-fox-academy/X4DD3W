@@ -25,7 +25,7 @@ public class PersonalFinance {
   public static int sum(ArrayList<Integer> firstP) {
     int result = 0;
     for (int i = 0; i < firstP.size(); i++) {
-      result = result + firstP.get(i);
+      result += firstP.get(i);
     }
     return result;
   }

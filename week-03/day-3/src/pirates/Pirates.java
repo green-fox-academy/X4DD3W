@@ -10,6 +10,7 @@ public class Pirates {
   Random luck = new Random();
 
   public Pirates() {
+
   }
 
   public void drinkSomeRum() {

@@ -35,7 +35,7 @@ public class ReversedLines {
 
     for (int i = 0; i < zenOfPy.size(); i++) {
       for (int j = 1; j <= zenOfPy.get(i).length(); j++) {
-        temp = temp + zenOfPy.get(i).charAt(zenOfPy.get(i).length() - j);
+        temp += zenOfPy.get(i).charAt(zenOfPy.get(i).length() - j);
       }
       decryptedFile.add(temp);
       temp = "";

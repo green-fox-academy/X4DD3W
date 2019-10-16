@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Blog {
-
-  //Create a Blog class which can
+  // Create a Blog class which can
   // store a list of BlogPosts
   // add BlogPosts to the list
   // delete(int) one item at given index
@@ -17,7 +16,7 @@ public class Blog {
     this.allPost = new ArrayList<>();
   }
 
-  public void add(BlogPost newPost){
+  public void add(BlogPost newPost) {
     allPost.add(new BlogPost());
   }
 

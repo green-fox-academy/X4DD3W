@@ -9,14 +9,14 @@ public class CountLetters {
 
   public HashMap counter(String word) {
     char[] charArray = word.toCharArray();
-    HashMap<Character, Integer> hm = new HashMap<>();
+    HashMap<Character, Integer> dictionary = new HashMap<>();
     for (int i = 0; i < charArray.length; i++) {
-      if (hm.containsKey(charArray[i])) {
-        hm.put(charArray[i], hm.get(charArray[i]) + 1);
+      if (dictionary.containsKey(charArray[i])) {
+        dictionary.put(charArray[i], dictionary.get(charArray[i]) + 1);
       } else {
-        hm.put(charArray[i], 1);
+        dictionary.put(charArray[i], 1);
       }
     }
-    return hm;
+    return dictionary;
   }
 }

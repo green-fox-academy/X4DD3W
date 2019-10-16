@@ -12,9 +12,6 @@ public class SubStr {
   }
 
   public static int subStr(String input, String q) {
-    if (input.contains(q)) {
-      System.out.println(input.indexOf(q));
-    }
-    return -1;
+    return input.contains(q) ? input.indexOf(q) : input.indexOf(q);
   }
 }

@@ -7,7 +7,6 @@ public class BlogPost {
   String publicationDate;
 
   public BlogPost(){
-
   }
 
   public BlogPost(String authorName, String title, String text, String publicationDate) {

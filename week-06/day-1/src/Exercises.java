@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
@@ -42,10 +43,10 @@ public class Exercises {
         .getAverage();
     System.out.println("Exercise 4: " + (float) result41);
     // Method #2
-    OptionalDouble result42 = numbers4.stream()
+    double result42 = numbers4.stream()
         .filter(n -> n % 2 != 0)
         .mapToInt(n -> n)
-        .average();
+        .average().getAsDouble();
     System.out.println("Exercise 4: " + result42);
 
     // Write a Stream Expression to get the sum of the odd numbers in the list:
@@ -67,6 +68,8 @@ public class Exercises {
     // Write a Stream Expression to find the uppercase characters in a string!
     String example = "Egyszer volt, Hol nem volt, Volt egyszer egy Kislegény...";
 
+
+
     char[] array = example.toCharArray();
     List<Character> result = new ArrayList<>();
     for (int i = 0; i < array.length; i++) {
@@ -76,6 +79,13 @@ public class Exercises {
     System.out.println(result.stream()
       .filter(Character::isUpperCase)
         .collect(Collectors.toList()));
+
+    // Write a Stream Expression to find the strings which starts with
+    // a given letter (as parameter), in the following list:
+    List<String> cities = Arrays.asList("ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS");
+
+
+
 
   }
 }

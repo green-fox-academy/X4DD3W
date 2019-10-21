@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -74,14 +75,13 @@ public class Exercises {
     System.out.println("Exercise 8: " + string);
 
     // Write a Stream Expression to find the frequency of characters in a given string!
-    String frequency =
-        "Vol 4.1"
-        + "Nemes kezednek,"
-        + "melyben kezem delelhet,"
-        + "kedves, nincs párja.";
-    Stream<Character> stringToStream = frequency.codePoints().mapToObj(s -> (char) s);
-    Map<Object, Long> result9 = stringToStream.collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-    System.out.println("Exercise 9: " + result9);
+    // Gabor-edition
+    String word = "telhetetlen";
+    Map<Character, Integer> letterFrequency = new HashMap<>();
+    word.chars()
+        .forEach(letter -> letterFrequency
+            .put((char) letter, letterFrequency.getOrDefault((char) letter, 0) + 1));
+    System.out.println(letterFrequency);
 
   }
 }

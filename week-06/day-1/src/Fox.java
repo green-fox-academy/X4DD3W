@@ -7,6 +7,9 @@ import java.util.stream.Stream;
 
 public class Fox {
 
+  // Create a Fox class with 3 properties:
+  // name, color and age. Fill a list with at least 5 foxes and:
+
   private String name;
   private String color;
   private int age;
@@ -45,8 +48,8 @@ public class Fox {
     List<Fox> family3 = new ArrayList<>(Arrays.asList(fox1, fox2, fox3, fox4, fox5));
     Stream<String> onlyColorsWithStream = family3.stream()
         .map(fox -> fox.color);
-    Map<Object, Long> result10 = onlyColorsWithStream.collect(Collectors.groupingBy(f -> f, Collectors.counting()));
-    System.out.println(result10);
+    Map<Object, Long> foxFreq = onlyColorsWithStream.collect(Collectors.groupingBy(f -> f, Collectors.counting()));
+    System.out.println(foxFreq);
 
   }
 

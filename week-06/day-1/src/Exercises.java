@@ -52,7 +52,7 @@ public class Exercises {
 
     // Write a Stream Expression to find the uppercase characters in a string!
     String example = "Egyszer volt, Hol nem volt, Volt egyszer egy Kislegény...";
-    List<Character> upperCaseChars = example.codePoints()
+    List<Character> upperCaseChars = example.codePoints() // codepoints() --> ASCII-értékké alakítja az egyes karaktereket
         .mapToObj(s -> (char) s)
         .filter(Character::isUpperCase)
         .collect(Collectors.toList());
@@ -73,15 +73,25 @@ public class Exercises {
     Stream<String> list = charAsWords.map(c -> c.toString());
     String string = list.collect(Collectors.joining());
     System.out.println("Exercise 8: " + string);
+    // Egyben:
+    String charAsWords2 = charList2.stream()
+        .map(c -> c.toString())
+        .collect(Collectors.joining());
 
     // Write a Stream Expression to find the frequency of characters in a given string!
     // Gabor-edition
     String word = "telhetetlen";
-    Map<Character, Integer> letterFrequency = new HashMap<>();
+    Map<Character, Integer> charFreq = new HashMap<>();
     word.chars()
-        .forEach(letter -> letterFrequency
-            .put((char) letter, letterFrequency.getOrDefault((char) letter, 0) + 1));
-    System.out.println(letterFrequency);
+        .forEach(letter -> charFreq
+            .put((char) letter, charFreq.getOrDefault((char) letter, 0) + 1));
+    System.out.println("Exercise 8: " + charFreq);
+
+    // Laci-edition
+    Stream<Character> stringToCharStream = word.codePoints().mapToObj(s -> (char) s);
+    Map<Object, Long> result8 = stringToCharStream
+        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+    System.out.println("Exercise 8: " + result8);
 
   }
 }

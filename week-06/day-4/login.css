@@ -1,0 +1,56 @@
+body {
+  background: lightgrey;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+h1, label {
+  text-transform: uppercase;
+  font-weight: normal;
+  padding-top: 20px;
+}
+
+label, input {
+  display: block;
+  border-radius: 2px;
+}
+
+input {
+  height: 50px;
+  width: 95%;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+table {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 50px;
+  padding: 30px;
+  border: 1px solid lightgrey;
+  background: white;
+}
+
+#forgot {
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+a {
+  text-decoration: none !important;
+  color: black;
+}
+
+#button {
+  text-align: left;
+  border-radius: 30px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 15px 50px 15px 50px;
+  margin-top: 40px;
+}

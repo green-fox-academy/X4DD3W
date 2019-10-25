@@ -1,0 +1,9 @@
+table, label {
+  display: block;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: arial;
+  color: #50CFE6;
+}

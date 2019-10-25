@@ -1,4 +1,4 @@
-package models;
+package com.greenfoxacademy.springstart.models;
 
 import java.util.concurrent.atomic.AtomicLong;
 

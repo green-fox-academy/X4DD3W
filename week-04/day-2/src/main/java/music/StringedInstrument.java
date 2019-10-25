@@ -2,14 +2,14 @@ package main.java.music;
 
 public abstract class StringedInstrument extends Instrument {
 
-  int numberOfStrings;
+  private int numberOfStrings;
 
   public void sound() {
     play();
   }
 
-  public StringedInstrument(){
-
+  public StringedInstrument(int numberOfStrings) {
+    this.numberOfStrings = numberOfStrings;
   }
 
   public StringedInstrument(String name, int numberOfStrings){
@@ -17,5 +17,4 @@ public abstract class StringedInstrument extends Instrument {
     this.numberOfStrings = numberOfStrings;
     sound();
   }
-
 }

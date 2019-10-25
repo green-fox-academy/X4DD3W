@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="../static/styles.css"/>
+  <title>Welcome to the Webshop!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table>
+  <tr>
+    <h1>My Shop</h1>
+  </tr>
+  <tr id=filter>
+    <td>
+      <a href="/only-available">Only available</a>
+    </td>
+    <td>
+      <a href="/cheapest-first">Cheapest first</a>
+    </td>
+    <td>
+      <a href="/contains-nike">Contains nike</a>
+    </td>
+    <td>
+      <a href="/average-stock">Average stock</a>
+    </td>
+    <td>
+      <a href="/most-expensive">Most expensive available</a>
+    </td>
+  </tr>
+  <form action="/search" method="post">
+    <tr id=search>
+      <td>
+        <label for="search">Search for:</label>
+        <input type="search" name="userInput" value="" placeholder="...something like nike">
+      </td>
+      <td>
+        <button type="submit" name="button">Search</button>
+      </td>
+    </tr>
+  </form>
+  <tr id=header>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+</table>
+<h1 th:text="${avg}"></h1>
+</body>
+</html>

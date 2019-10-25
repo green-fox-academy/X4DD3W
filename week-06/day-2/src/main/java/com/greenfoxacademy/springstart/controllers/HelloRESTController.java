@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloRESTController {
 
-  AtomicLong val = new AtomicLong();
+  AtomicLong counter = new AtomicLong();
 
   @RequestMapping (value = "/greeting")
   @ResponseBody
   public Greeting greeting(@RequestParam String name) {
-    val.addAndGet(1);
-    return new Greeting(val, "Hello, " + name);
+    counter.addAndGet(1);
+    return new Greeting(counter, "Hello, " + name);
   }
-
 }

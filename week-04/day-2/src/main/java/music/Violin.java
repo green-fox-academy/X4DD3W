@@ -3,10 +3,11 @@ package main.java.music;
 public class Violin extends StringedInstrument{
 
   public Violin() {
+    super(4);
   }
 
   public Violin(int numberOfStrings) {
-    super.numberOfStrings = 4;
+    super(numberOfStrings);
     System.out.print(name + "Violin, a " + numberOfStrings + "-stringed instrument that goes " );
     sound();
   }

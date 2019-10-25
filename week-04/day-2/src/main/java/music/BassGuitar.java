@@ -3,10 +3,11 @@ package main.java.music;
 public class BassGuitar extends StringedInstrument{
 
   public BassGuitar() {
+    super(4);
   }
 
   public BassGuitar(int numberOfStrings) {
-    super.numberOfStrings = 4;
+    super(numberOfStrings);
     System.out.print("Bass Guitar, a " + numberOfStrings + "-stringed instrument that goes " );
     sound();
   }

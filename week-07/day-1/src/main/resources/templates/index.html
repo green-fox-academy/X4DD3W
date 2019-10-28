@@ -8,44 +8,23 @@
 <div>
   <table>
     <tr>
-      <th>Index</th>
       <th>Name</th>
       <th>Balance</th>
       <th>AnimalType</th>
-      <th>Name</th>
+      <th>Index</th>
+      <th>Good/Bad?</th>
+    </tr>
+    <tr th:each="account : ${accounts}" th:style="${account.isKing() ? 'background-color: yellow' : 'color:black'}">
+      <div th:switch="${account.isGoodGuy()}">
+        <td th:text="${account.getName()}"></td>
+        <td th:text="${account.getBalance()}"> </td>
+        <td th:text="${account.getAnimalType()}"></td>
+        <td th:text="${accountStat.index}" ></td>
+        <td th:case="false">Bad guy</td>
+        <td th:case="true">Good guy</td>
+      </div>
     </tr>
   </table>
-  <div th:each="account : ${accounts}">
-    <th:block th:switch="${account.isGoodGuy()}">
-      <div th:case="true">
-        <p th:if="${account.isKing()}" th:style="|color: blue|"
-           th:text="|${accounts.indexOf(account)} ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()} GoodGuy|"></p>
-        <p th:if="${account.isKing() == false}"
-           th:text="|${accounts.indexOf(account)} ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()} GoodGuy|"></p>
-      </div>
-      <div th:case="false">
-        <p th:if="${account.isKing()}" th:style="|color: blue|"
-           th:text="|${accounts.indexOf(account)} ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()} BadGuy|"></p>
-        <p th:if="${account.isKing() == false}"
-           th:text="|${accounts.indexOf(account)} ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()} BadGuy|"></p>
-      </div>
-    </th:block>
-  </div>
 </div>
-
-  <!--
-  <table>
-    <div th:each="account : ${accounts}">
-      <tr th:if="${account.isKing()}" th:style="|color: blue|">
-      <td th:text="|${accounts.indexOf(account)}|"></td>
-      <td th:text="|${accounts.getName()}|"></td>
-      <td th:text="|${accounts.indexOf(account)}|"></td>
-      ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()}|"></p>
-      </tr>
-      <p th:if="${account.isKing() == false}"
-         th:text="|${accounts.indexOf(account)} ${account.getName()} ${account.getBalance()} Zebra ${account.getAnimalType()}|">
-    </div>
-  </table>-->
-
 </body>
 </html>

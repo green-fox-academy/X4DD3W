@@ -34,6 +34,10 @@ public class BankAccount {
     return balance;
   }
 
+  public void setBalance(double balance) {
+    this.balance = balance;
+  }
+
   public String getAnimalType() {
     return animalType;
   }

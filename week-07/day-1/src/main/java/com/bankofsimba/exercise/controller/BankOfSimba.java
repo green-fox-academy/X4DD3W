@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BankOfSimba {
+
   List<BankAccount> accounts = new ArrayList<>();
 
   public BankOfSimba() {
@@ -31,5 +32,17 @@ public class BankOfSimba {
   public String testHTML(Model model) {
     model.addAttribute("text", "\"This is an <em>HTML</em> text. <b>Enjoy yourself!</b>\"");
     return "text";
+  }
+
+  @PostMapping("/raise")
+  public String raisingBalance(@RequestParam int animalIndex) {
+    if (accounts.get(animalIndex).isKing()) {
+      double newBal = accounts.get(animalIndex).getBalance() + 100;
+      accounts.get(animalIndex).setBalance(newBal);
+    } else {
+      double newBal = accounts.get(animalIndex).getBalance() + 10;
+      accounts.get(animalIndex).setBalance(newBal);
+    }
+    return "redirect:/show";
   }
 }

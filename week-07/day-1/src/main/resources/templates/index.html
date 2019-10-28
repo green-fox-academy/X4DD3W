@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Books</title>
+  <title>BankAccounts</title>
   <meta charset="utf-8"/>
 </head>
 <body>
@@ -25,6 +25,19 @@
       </div>
     </tr>
   </table>
+</div>
+<div>
+  <form
+      action="#"
+      th:action="@{/raise}"
+      th:method="post"
+  >
+    <label>Raise the balance of a selected animal:</label>
+    <select name="animalIndex">
+      <option th:each="bankAccount : ${accounts}" th:text="${bankAccount.getName()}" th:value="${bankAccountStat.index}"></option>
+    </select>
+    <input type="submit" value="Raise Balance">
+  </form>
 </div>
 </body>
 </html>

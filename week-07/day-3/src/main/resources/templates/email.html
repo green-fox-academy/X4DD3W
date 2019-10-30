@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Colored background</title>
+  <title>Email</title>
 </head>
-<body th:style="|background color : ${randomColor}">
+<body>
+<p th:text="${email}" th:style="${isValid} ? 'color: green' : 'color: red'"></p>
 </body>
 </html>

@@ -2,9 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Index</title>
 </head>
 <body>
+<a th:href="@{/useful}">index</a>
+<a th:href="@{/colored}">colored background</a>
+<br>
+
+<label>Is this email, right?</label>
+<form th:action="@{/email}" th:method="post">
+  <input type="text" name="email">
+  <button type="submit">CHECK!</button>
+</form>
+
+<label>Encrypt</label>
+<form th:action="@{/caesar}" th:method="post">
+  <input type="text" name="toEncrypt">
+  <input th:type="number" name="numberToEncrypt">
+  <button type="submit">ENCRYPT!</button>
+</form>
+
+<label>Decrypt</label>
+<form th:action="@{/caesar/decrypt}" th:method="post">
+  <input type="text" name="toDecrypt">
+  <input th:type="number" name="numberToDecrypt">
+  <button type="submit">DECRYPT!</button>
+</form>
 
 </body>
 </html>

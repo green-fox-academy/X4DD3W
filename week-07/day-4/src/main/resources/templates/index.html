@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+<ul>
+  <li><a th:href="|http://localhost:8080/|">Information</a></li>
+  <li><a th:href="|http://localhost:8080/login|">Login</a></li>
+</ul>
+<img src="greenfox.png">
+<p th:text="|This is | + ${name} + |. Currently living on | + ${food} + | and | + ${drink} + |. He knows | + ${numberofTricks} + | tricks.|"></p>
+<h1>Known tricks</h1>
+<ul>
+<li>
+<p th:text="${trickList}"></p>
+</li>
+</ul>
+</body>
+</html>

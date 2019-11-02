@@ -20,6 +20,7 @@ public class UsefulUtilities {
 
   @GetMapping("/useful")
   public String linkPresenter() {
+    System.out.println("haha");
     return "index";
   }
 

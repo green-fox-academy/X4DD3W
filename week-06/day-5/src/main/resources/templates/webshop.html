@@ -9,27 +9,27 @@
 <table>
   <tr>
     <h1>
-      <a href="localhost:8080/webshop">My Shop</a>
+      <a th:href="@{/webshop}">My Shop</a>
     </h1>
   </tr>
   <tr id=filter>
     <td>
-      <a href="/only-available">Only available</a>
+      <a th:href="@{/only-available}">Only available</a>
     </td>
     <td>
-      <a href="/cheapest-first">Cheapest first</a>
+      <a th:href="@{/cheapest-first}">Cheapest first</a>
     </td>
     <td>
-      <a href="/contains-nike">Contains nike</a>
+      <a th:href="@{/contains-nike}">Contains nike</a>
     </td>
     <td>
-      <a href="/average-stock">Average stock</a>
+      <a th:href="@{/average-stock}">Average stock</a>
     </td>
     <td>
-      <a href="/most-expensive">Most expensive available</a>
+      <a th:href="@{/most-expensive}">Most expensive available</a>
     </td>
   </tr>
-  <form action="/search" method="post">
+  <form th:action="@{/search}" th:method="post">
     <tr id=search>
       <td>
         <label for="search">Search for:</label>

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,13 +37,26 @@ public class BankOfSimba {
 
   @PostMapping("/raise")
   public String raisingBalance(@RequestParam int animalIndex) {
-    if (accounts.get(animalIndex).isKing()) {
+    if (accounts.get(animalIndex).getKing()) {
       double newBal = accounts.get(animalIndex).getBalance() + 100;
       accounts.get(animalIndex).setBalance(newBal);
     } else {
       double newBal = accounts.get(animalIndex).getBalance() + 10;
       accounts.get(animalIndex).setBalance(newBal);
     }
+    return "redirect:/show";
+  }
+
+  // Adding a new account isn't work yet (only balance works)...
+  @GetMapping("/signup")
+  public String createNewAccount(@ModelAttribute("newAccount") BankAccount newAcc, Model model) {
+    model.addAttribute("newAccount", newAcc);
+    return "signup";
+  }
+
+  @PostMapping("/signup")
+  public String registerAccount(@ModelAttribute("newAccount") BankAccount newAcc) {
+    accounts.add(newAcc);
     return "redirect:/show";
   }
 }

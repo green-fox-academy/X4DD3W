@@ -64,7 +64,7 @@ public class Webshop {
         .filter(item -> item.getQuantityOfStock() > 0)
         .mapToInt(n -> n.getQuantityOfStock())
         .average().getAsDouble();
-    model.addAttribute("avg", "Averages stock: " + average);
+    model.addAttribute("avg", "Average stock: " + average);
     return "webshop-avg";
   }
 
@@ -72,17 +72,18 @@ public class Webshop {
   public String mostExpensive(Model model) {
     String mostExpensive = listOfItems.stream()
         .filter(item -> item.getQuantityOfStock() > 0)
-        .max(Comparator.
-        comparingInt(ShopItem::getPrice)).get().getName();
+        .max(Comparator
+        .comparingInt(ShopItem::getPrice)).get().getName();
     model.addAttribute("avg", mostExpensive);
     return "webshop-avg";
   }
 
   @PostMapping(value = "/search")
   public String search(Model model, @RequestParam String userInput) {
+    String userInputLowerCase = userInput.toLowerCase();
     List<ShopItem> searchInName = listOfItems.stream()
-        .filter(item -> item.getName().toLowerCase().contains(userInput) ||
-            item.getDescription().toLowerCase().contains(userInput))
+        .filter(item -> item.getName().toLowerCase().contains(userInputLowerCase) ||
+            item.getDescription().toLowerCase().contains(userInputLowerCase))
         .collect(Collectors.toList());
     model.addAttribute("list", searchInName);
     return "webshop";

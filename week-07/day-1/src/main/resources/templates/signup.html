@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Signup</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+<table>
+  <tr>
+    <td>
+      <form action="#" th:action="@{/signup}" th:method="post" th:object="${newAccount}">
+        <th:block>
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required placeholder="name" oninvalid="this.setCustomValidity('Please add a name')">
+        <label>Balance</label>
+        <input type="number" th:field="*{balance}" required placeholder="balance">
+        <label>AnimalType</label>
+        <input type="text" th:field="*{animalType}" required placeholder="animalType">
+        <label>King?</label>
+          <input type="radio" th:name="isKing" th:field="*{king}" th:value="true" required> True
+          <input type="radio" th:name="isKing" th:field="*{king}" th:value="false" checked required> False
+        <label>Good guy?</label>
+          <input type="radio" th:name="goodGuy" th:field="*{goodGuy}" th:value="true" checked required> True
+          <input type="radio" th:name="goodGuy" th:field="*{goodGuy}" th:value="false" required> False
+        </th:block>
+        <button type="submit">Create</button>
+      </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

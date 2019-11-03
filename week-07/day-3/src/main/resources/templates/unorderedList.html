@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Unordered List of All Students </title>
+</head>
+<body>
+<list>
+  <div th:each="student : ${listOfAllStudents.findAll()}">
+    <ul>
+      <li th:text="${student.toString()}"></li>
+    </ul>
+  </div>
+</list>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>List of All Students</title>
+</head>
+<body>
+
+<th:block>
+  <h3>
+    <p th:text="'The current number of students: ' + ${listOfAllStudents.count()}"></p>
+  </h3>
+</th:block>
+
+<th:block>
+  <a th:href="@{/gfa}">Index</a>
+  <a th:href="@{/gfa/list}">Unordered List</a>
+  <a th:href="@{/gfa/add}">Add new Student</a>
+  <a th:href="@{/gfa/check}">Student Checker</a>
+</th:block>
+<br>
+<p th:text="${listOfAllStudents.findAll()}"></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Checker</title>
+</head>
+<body>
+<div>
+  <form action="#" th:action="@{/gfa/check}" th:method="post">
+    <label>Search</label>
+    <input th:type="text" th:name="checkedStudent" required>
+    <button type="submit">Check!</button>
+  </form>
+</div>
+</body>
+</html>

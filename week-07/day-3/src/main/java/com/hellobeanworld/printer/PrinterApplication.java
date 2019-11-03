@@ -14,6 +14,7 @@ public class PrinterApplication implements CommandLineRunner {
   private Printer printy;
   private MyColor color;
 
+  // Constructor
   @Autowired
   public PrinterApplication(Printer printy, @Qualifier("purple") MyColor color) {
     this.printy = printy;
@@ -24,6 +25,7 @@ public class PrinterApplication implements CommandLineRunner {
     SpringApplication.run(PrinterApplication.class, args);
   }
 
+  // Override the CommandLineRunner's "run"-method
   @Override
   public void run(String... args) throws Exception {
     printy.log("Muahaha!");

@@ -10,12 +10,12 @@
   <li><a th:href="|http://localhost:8080/login|">Login</a></li>
 </ul>
 <img src="greenfox.png">
-<p th:text="|This is | + ${name} + |. Currently living on | + ${food} + | and | + ${drink} + |. He knows | + ${numberofTricks} + | tricks.|"></p>
-<h1>Known tricks</h1>
+<p th:text="|This is ${name}. Currently living on ${food} and ${drink}. He knows ${numberOfTricks} tricks.|"></p>
+<h1 th:text="'Known tricks'"></h1>
 <ul>
-<li>
-<p th:text="${trickList}"></p>
-</li>
+  <li>
+    <p th:text="${trickList}"></p>
+  </li>
 </ul>
 </body>
 </html>

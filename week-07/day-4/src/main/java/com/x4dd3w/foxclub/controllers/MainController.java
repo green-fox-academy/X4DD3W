@@ -15,37 +15,42 @@ public class MainController {
 
   List<Fox> listOfFoxes = new ArrayList<>();
 
-  @GetMapping({"/", ""})
-  public String simplePage(@RequestParam(name = "name", required = false) String name,
-      Model model) {
-
-    Fox fox = new Fox(name);
-    listOfFoxes.add(fox);
-    model.addAttribute("name", fox.getName());
-    model.addAttribute("numberofTricks", fox.getTricks().size());
-    model.addAttribute("trickList", fox.getTricks());
-    model.addAttribute("food", fox.getFood());
-    model.addAttribute("drink", fox.getDrink());
-    model.addAttribute("foxList", listOfFoxes);
-    return (name == null) ? "login" : "index";
+  @GetMapping(value = {"", "/"})
+  public String index(Model model, @RequestParam(name = "name", required = false) String name) {
+    Fox actualfox = new Fox("anonymus", "grass", "milk");
+    for (Fox fox : listOfFoxes) {
+      if (fox.getName().equals(name)) {
+        actualfox = fox;
+      }
+    }
+    if (name == null) {
+      return "login";
+    } else {
+      model.addAttribute("name", actualfox.getName());
+      model.addAttribute("food", actualfox.getFood());
+      model.addAttribute("drink", actualfox.getDrink());
+      model.addAttribute("numberOfTricks", actualfox.getTricks().size());
+      model.addAttribute("trickList", actualfox.getTricks());
+      return "index";
+    }
   }
 
-  @GetMapping("/login")
+  @GetMapping(value = {"/login"})
   public String logIn() {
     return "login";
   }
 
-  @PostMapping("/login")
-  public String create(@RequestParam String name) {
+  @PostMapping(value = {"/login"})
+  public String logIn(@RequestParam String name) {
     return "redirect:/?name=" + name;
   }
 
-  @GetMapping("/create")
+  @GetMapping(value = {"/create"})
   public String createForm(@ModelAttribute("fox") Fox fox) {
     return "create";
   }
 
-  @PostMapping("/create")
+  @PostMapping(value = {"/create"})
   public String createFox(@ModelAttribute("fox") Fox fox) {
     listOfFoxes.add(fox);
     return "redirect:/?name=" + fox.getName();

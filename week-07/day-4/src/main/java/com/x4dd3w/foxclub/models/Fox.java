@@ -10,11 +10,7 @@ public class Fox {
   private String food;
   private String drink;
 
-  public Fox(){
-
-  }
-
-  public Fox(String name, String food, String drink){
+  public Fox(String name, String food, String drink) {
     this.name = name;
     this.food = food;
     this.drink = drink;
@@ -52,12 +48,4 @@ public class Fox {
   public void setDrink(String drink) {
     this.drink = drink;
   }
-
-
-  /*public Fox(String name, List<String> tricks, String food, String drink) {
-    this.name = name;
-    this.tricks = tricks;
-    this.food = food;
-    this.drink = drink;
-  }*/
 }

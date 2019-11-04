@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Index</title>
+  <title>NutritionStore</title>
 </head>
 <body>
 <ul>
-  <li><a th:href="@{/}">Information</a></li>
   <li><a th:href="@{/login}">Login</a></li>
   <li><a th:href="@{/create}">Create a New Fox</a></li>
+  <li><a th:href="@{/trickCenter(name=${name})}">Trickcenter</a></li>
 </ul>
 <br>
 <th:block>

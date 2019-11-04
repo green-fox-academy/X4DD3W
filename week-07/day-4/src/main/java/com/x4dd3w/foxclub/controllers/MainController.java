@@ -47,17 +47,4 @@ public class MainController {
     mainservice.addFox(fox);
     return "redirect:/?name=" + fox.getName();
   }
-
-  @GetMapping(value = "/nutritionStore")
-  public String changeNutrition(@RequestParam String name, Model model) {
-    model.addAttribute("name", name);
-    return "nutritionStore";
-  }
-
-  @PostMapping(value = "/nutritionStore")
-  public String saveNewNutrition(@RequestParam String food, @RequestParam String drink, @RequestParam String name) {
-    mainservice.findFox(name).setFood(food);
-    mainservice.findFox(name).setDrink(drink);
-    return "redirect:/?name=" + name;
-  }
 }

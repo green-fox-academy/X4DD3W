@@ -5,22 +5,20 @@
   <title>TrickCenter</title>
 </head>
 <body>
-<ul>
-  <li><a th:href="@{/login}">Login</a></li>
-  <li><a th:href="@{/create}">Create a New Fox</a></li>
-  <li><a th:href="@{/nutritionStore(name=${name})}">Trickcenter</a></li>
-</ul>
+<a th:href="@{/login}">Login</a>
+<a th:href="@{/create}">Create a New Fox</a>
+<a th:href="@{/nutritionStore(name=${name})}">Nutrition Store</a>
 <br>
-<th:block>
-  <form action="#" th:action="@{/trickCenter(name=${name})}" th:method="post">
-    <label>Food</label>
-    <select name="trick">
-      <option value="trick1">Trick1</option>
-      <option value="trick2">Trick2</option>
-      <option value="trick3">Trick3</option>
-    </select>
-    <button type="submit">Go!</button>
-  </form>
-</th:block>
+<div>
+  <th:block>
+    <form action="#" th:action="@{/trickCenter(name=${name})}" th:method="post">
+      <label>Add a trick:</label>
+      <select name="trickToAdd">
+        <option th:each="trick : ${trickList}" th:text="${trick}" th:value="${trick}"></option>
+      </select>
+      <button type="submit">Learn</button>
+    </form>
+  </th:block>
+</div>
 </body>
 </html>

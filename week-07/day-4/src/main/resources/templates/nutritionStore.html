@@ -5,11 +5,9 @@
   <title>NutritionStore</title>
 </head>
 <body>
-<ul>
-  <li><a th:href="@{/login}">Login</a></li>
-  <li><a th:href="@{/create}">Create a New Fox</a></li>
-  <li><a th:href="@{/trickCenter(name=${name})}">Trickcenter</a></li>
-</ul>
+<a th:href="@{/login}">Login</a>
+<a th:href="@{/create}">Create a New Fox</a>
+<a th:href="@{/trickCenter(name=${name})}">Trickcenter</a>
 <br>
 <th:block>
   <form action="#" th:action="@{/nutritionStore(name=${name})}" th:method="post">

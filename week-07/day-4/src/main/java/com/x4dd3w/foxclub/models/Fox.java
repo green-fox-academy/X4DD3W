@@ -10,8 +10,8 @@ public class Fox {
   private String food;
   private String drink;
 
-  public Fox(){
-    
+  public Fox() {
+
   }
 
   public Fox(String name, String food, String drink) {
@@ -25,16 +25,8 @@ public class Fox {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public List<String> getTricks() {
     return tricks;
-  }
-
-  public void setTricks(List<String> tricks) {
-    this.tricks = tricks;
   }
 
   public String getFood() {

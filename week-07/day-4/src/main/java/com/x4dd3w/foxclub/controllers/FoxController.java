@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FoxController {
+
   @Autowired
   MainService mainservice;
 
@@ -29,15 +30,17 @@ public class FoxController {
 
   @GetMapping(value = "/trickCenter")
   public String goToTrickCenter(@RequestParam String name, Model model) {
+    model.addAttribute("trickList", mainservice.findTrickListElement(name));
     model.addAttribute("name", name);
     return "trickCenter";
   }
 
   @PostMapping(value = "/trickCenter")
-  public String saveTheTrick(@RequestParam String trick, @RequestParam String name) {
-    // mainservice.findFox(name).setFood(food);
-    // trick checking in the list - which list? :D
+  public String saveTheTrick(@RequestParam String trickToAdd, @RequestParam String name) {
+    if (mainservice.findTrick(name, trickToAdd)) {
+    } else {
+      mainservice.findFox(name).getTricks().add(trickToAdd);
+    }
     return "redirect:/?name=" + name;
   }
-
 }

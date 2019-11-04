@@ -5,13 +5,14 @@
   <title>Login</title>
 </head>
 <body>
-<h1 th:text="'Welcome to Programmer Fox Club!'"></h1>
+<h1>Welcome to Programmer Fox Club!</h1>
 <p>Please provide a name, so you can associate it to your pet!</p>
 <form th:action="@{/login}" th:method="post">
   <label>Name</label><br>
   <input th:type="text" name="name" required placeholder="Prünty">
-  <!-- oninvalid="this.setCustomValidity('Please add a name')" -->
   <button type="submit">GO</button>
 </form>
+<br>
+<a th:href="@{/create}">... or create a new fox!</a>
 </body>
 </html>

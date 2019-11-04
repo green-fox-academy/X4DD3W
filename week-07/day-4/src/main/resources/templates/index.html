@@ -5,20 +5,17 @@
   <title>Index</title>
 </head>
 <body>
-<ul>
-  <li><a th:href="@{/login}">Login</a></li>
-  <li><a th:href="@{/create}">Create a New Fox</a></li>
-  <li><a th:href="@{/nutritionStore(name=${fox.name})}">Nutrition Store</a></li>
-  <li><a th:href="@{/trickCenter(name=${fox.name})}">Trickcenter</a></li>
-</ul>
+<th:block>
+  <a th:href="@{/login}">Login</a>
+  <a th:href="@{/create}">Create a New Fox</a>
+  <a th:href="@{/nutritionStore(name=${fox.name})}">Nutrition Store</a>
+  <a th:href="@{/trickCenter(name=${fox.name})}">Trickcenter</a>
+</th:block>
 <br>
 <img src="greenfox.png">
 <p th:text="|This is ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. He knows ${fox.tricks.size()} tricks.|"></p>
 <h1 th:text="'Known tricks'"></h1>
-<ul>
-  <li>
-    <p th:text="${fox.tricks}"></p>
-  </li>
-</ul>
+<span th:if="${fox.tricks.size() == 0}" th:text="'This fox knows nothing.'"></span>
+<p th:unless="${fox.tricks.size() == 0}" th:each="trick: ${fox.tricks}" th:text="${trick}"></p>
 </body>
 </html>

@@ -1,8 +1,8 @@
 package com.x4dd3w.foxclub.controllers;
 
 import com.x4dd3w.foxclub.models.Fox;
-import java.util.ArrayList;
-import java.util.List;
+import com.x4dd3w.foxclub.services.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,24 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
-  List<Fox> listOfFoxes = new ArrayList<>();
+  @Autowired
+  private MainService mainservice;
 
   @GetMapping(value = {"", "/"})
   public String index(Model model, @RequestParam(name = "name", required = false) String name) {
-    Fox actualfox = new Fox("anonymus", "grass", "milk");
-    for (Fox fox : listOfFoxes) {
-      if (fox.getName().equals(name)) {
-        actualfox = fox;
-      }
-    }
-    if (name == null) {
+    Fox actualfox = mainservice.findFox(name);
+    if (actualfox.getName() == null) {
       return "login";
     } else {
-      model.addAttribute("name", actualfox.getName());
-      model.addAttribute("food", actualfox.getFood());
-      model.addAttribute("drink", actualfox.getDrink());
-      model.addAttribute("numberOfTricks", actualfox.getTricks().size());
-      model.addAttribute("trickList", actualfox.getTricks());
+      model.addAttribute("fox", actualfox);
       return "index";
     }
   }
@@ -52,7 +44,20 @@ public class MainController {
 
   @PostMapping(value = {"/create"})
   public String createFox(@ModelAttribute("fox") Fox fox) {
-    listOfFoxes.add(fox);
+    mainservice.addFox(fox);
     return "redirect:/?name=" + fox.getName();
+  }
+
+  @GetMapping(value = "/nutritionStore")
+  public String changeNutrition(@RequestParam String name, Model model) {
+    model.addAttribute("name", name);
+    return "nutritionStore";
+  }
+
+  @PostMapping(value = "/nutritionStore")
+  public String saveNewNutrition(@RequestParam String food, @RequestParam String drink, @RequestParam String name) {
+    mainservice.findFox(name).setFood(food);
+    mainservice.findFox(name).setDrink(drink);
+    return "redirect:/?name=" + name;
   }
 }

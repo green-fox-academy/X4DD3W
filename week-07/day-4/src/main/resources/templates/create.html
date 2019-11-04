@@ -5,6 +5,9 @@
   <title>Create</title>
 </head>
 <body>
+<li><a th:href="@{/}">Information</a></li>
+<li><a th:href="@{/login}">Login</a></li>
+<br>
 <label>New Fox</label>
 <form th:action="@{/create}" th:method="post" th:object="${fox}">
   <input type="text" th:field="*{name}" required placeholder="name" oninvalid="this.setCustomValidity('Please add a name')">

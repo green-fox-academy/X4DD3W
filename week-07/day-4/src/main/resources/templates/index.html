@@ -6,15 +6,18 @@
 </head>
 <body>
 <ul>
-  <li><a th:href="|http://localhost:8080/|">Information</a></li>
-  <li><a th:href="|http://localhost:8080/login|">Login</a></li>
+  <li><a th:href="@{/}">Information</a></li>
+  <li><a th:href="@{/login}">Login</a></li>
+  <li><a th:href="@{/create}">Create a New Fox</a></li>
+  <li><a th:href="@{/nutritionStore(name=${fox.name})}">Nutrition Store</a></li>
 </ul>
+<br>
 <img src="greenfox.png">
-<p th:text="|This is ${name}. Currently living on ${food} and ${drink}. He knows ${numberOfTricks} tricks.|"></p>
+<p th:text="|This is ${fox.name}. Currently living on ${fox.food} and ${fox.drink}. He knows ${fox.tricks.size()} tricks.|"></p>
 <h1 th:text="'Known tricks'"></h1>
 <ul>
   <li>
-    <p th:text="${trickList}"></p>
+    <p th:text="${fox.tricks}"></p>
   </li>
 </ul>
 </body>

@@ -9,5 +9,4 @@ public class ConnecttomysqlApplication {
   public static void main(String[] args) {
     SpringApplication.run(ConnecttomysqlApplication.class, args);
   }
-
 }

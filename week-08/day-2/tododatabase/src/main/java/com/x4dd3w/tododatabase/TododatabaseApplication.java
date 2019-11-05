@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TododatabaseApplication implements CommandLineRunner {
 
+  @Autowired
   private ToDoRepository repository;
 
   @Autowired

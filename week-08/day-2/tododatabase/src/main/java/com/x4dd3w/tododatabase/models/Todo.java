@@ -8,7 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Todo {
 
-  @Id @GeneratedValue(strategy = GenerationType.AUTO)
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private String title;
   private boolean urgent = false;

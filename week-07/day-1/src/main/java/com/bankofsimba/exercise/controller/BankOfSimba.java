@@ -47,9 +47,14 @@ public class BankOfSimba {
     return "redirect:/show";
   }
 
+  // TODO: 2019. 11. 05.
   // Adding a new account isn't work yet (only balance works)...
   @GetMapping("/signup")
   public String createNewAccount(@ModelAttribute("newAccount") BankAccount newAcc, Model model) {
+    System.out.println(newAcc);
+    System.out.println(newAcc.getName());
+    System.out.println(newAcc.getAnimalType());
+    System.out.println(newAcc.getKing());
     model.addAttribute("newAccount", newAcc);
     return "signup";
   }

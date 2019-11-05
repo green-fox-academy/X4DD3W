@@ -50,4 +50,20 @@ public class BankAccount {
     this.balance = balance;
   }
 
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setAnimalType(String animalType) {
+    this.animalType = animalType;
+  }
+
+  public void setKing(boolean king) {
+    isKing = king;
+  }
+
+  public void setGoodGuy(boolean goodGuy) {
+    this.goodGuy = goodGuy;
+  }
+
 }

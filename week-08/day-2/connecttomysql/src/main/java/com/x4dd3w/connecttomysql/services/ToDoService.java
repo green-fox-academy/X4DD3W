@@ -8,4 +8,6 @@ public interface ToDoService {
   List<Todo> showActiveToDos(Boolean isActive);
 
   Todo findById(Long id);
+
+  List<Todo> searched(String title);
 }

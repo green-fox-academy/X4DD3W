@@ -7,7 +7,16 @@
 </head>
 <body>
 <h1>Todos for today</h1>
+<a th:href="@{/todo/assignees}">List of Assignees</a>
+<br>
 <a th:href="@{/todo/add}">Add new todo</a>
+<br>
+
+
+<form th:action="@{/todo/search}" th:method="post" >
+  <input type="text" th:name="userInput">
+  <button type="submit">search</button>
+</form>
 <table>
   <tr>
     <th>Title</th>
@@ -24,6 +33,5 @@
     <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>
   </tr>
 </table>
-
 </body>
 </html>

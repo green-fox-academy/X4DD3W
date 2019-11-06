@@ -1,6 +1,7 @@
 package com.x4dd3w.connecttomysql.controllers;
 
 import com.x4dd3w.connecttomysql.models.Todo;
+import com.x4dd3w.connecttomysql.repositories.AssigneeRepository;
 import com.x4dd3w.connecttomysql.repositories.ToDoRepository;
 import com.x4dd3w.connecttomysql.services.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class ToDoController {
 
   @Autowired
   private ToDoRepository repository;
+
+  @Autowired
+  private AssigneeRepository assigneerepository;
 
   @Autowired
   private ToDoService service;
@@ -60,5 +64,11 @@ public class ToDoController {
   public String returnTodoList(@ModelAttribute(name = "todo") Todo todo) {
     repository.save(todo);
     return "redirect:/todo/";
+  }
+
+  @PostMapping("/search")
+  public String search(@RequestParam(name = "userInput") String userInput, Model model) {
+    model.addAttribute("todos", service.searched(userInput));
+    return "todolist";
   }
 }

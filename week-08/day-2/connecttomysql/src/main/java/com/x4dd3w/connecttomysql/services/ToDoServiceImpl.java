@@ -2,6 +2,7 @@ package com.x4dd3w.connecttomysql.services;
 
 import com.x4dd3w.connecttomysql.models.Todo;
 import com.x4dd3w.connecttomysql.repositories.ToDoRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,16 @@ public class ToDoServiceImpl implements ToDoService {
   @Override
   public Todo findById(Long id) {
     return repository.findById(id).orElse(null);
+  }
+
+  @Override
+  public List<Todo> searched(String search) {
+    List<Todo> searched = new ArrayList<>();
+    for (Todo todo : repository.findAll()) {
+      if (todo.getTitle().contains(search)) {
+        searched.add(todo);
+      }
+    }
+    return searched;
   }
 }

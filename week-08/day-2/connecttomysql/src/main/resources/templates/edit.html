@@ -9,7 +9,7 @@
 <form th:action="@{'/todo/' + ${id} + '/edit'}"
       th:method="post" th:object="${todo}">
   <label>Todo Description</label>
-  <input id="title" type="text" th:field="*{title}">
+  <input type="text" th:field="*{title}">
   <label>Urgent</label>
   <input type="checkbox" th:field="*{urgent}" th:checked="*{urgent}">
   <label>Done</label>

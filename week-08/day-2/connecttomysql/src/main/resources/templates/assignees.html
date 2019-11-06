@@ -14,11 +14,6 @@
   <input type="text" th:field="*{email}" required>
   <button type="submit">Add an assignee</button>
 </form>
-
-<!--<form th:action="@{/todo/search}" th:method="post" >
-  <input type="text" th:name="userInput">
-  <button type="submit">search</button>
-</form>-->
 <table>
   <tr>
     <th>Name</th>
@@ -32,6 +27,6 @@
     <td><a th:href="@{'/todo/' + ${assignee.getId()} + '/editAssignee'}">edit</a></td>
   </tr>
 </table>
-
+<a th:href="@{/todo/}">Back to Todos</a>
 </body>
 </html>

@@ -40,7 +40,6 @@ public class AssigneeController {
     return "redirect:/todo/assignees";
   }
 
-  // IDÁIG KÉSZ
   @GetMapping("/{id}/editAssignee")
   public String editAssignee(@PathVariable Long id, Model model) {
     model.addAttribute("assignee", assigneeService.findById(id));
@@ -48,7 +47,7 @@ public class AssigneeController {
   }
 
   @PostMapping("/{id}/editAssignee")
-  public String returnTodoList(@ModelAttribute(name = "todo") Assignee assignee) {
+  public String returnTodoList(@ModelAttribute Assignee assignee) {
     assigneerepository.save(assignee);
     return "redirect:/todo/assignees";
   }

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Todo {
@@ -14,6 +15,9 @@ public class Todo {
   private String title;
   private boolean urgent = false;
   private boolean done = false;
+
+  @ManyToOne()
+  private Assignee assignee;
 
   public Todo() {
 

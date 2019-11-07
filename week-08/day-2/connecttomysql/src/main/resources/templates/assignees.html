@@ -16,12 +16,15 @@
 </form>
 <table>
   <tr>
+    <th>Id</th>
     <th>Name</th>
     <th>Email</th>
   </tr>
   <tr th:each="assignee : ${assignees}">
     <td th:text="${assignee.getId()}"></td>
-    <td th:text="${assignee.getName()}"></td>
+    <td>
+      <a th:text="${assignee.getName()}" th:href="@{'/todo/' + ${assignee.getId()} + '/assigneeToDos'}"></a>
+    </td>
     <td th:text="${assignee.getEmail()}"></td>
    <td><a th:href="@{'/todo/' + ${assignee.getId()} + '/deleteAssignee'}">delete</a></td>
     <td><a th:href="@{'/todo/' + ${assignee.getId()} + '/editAssignee'}">edit</a></td>

@@ -19,7 +19,11 @@ public class Assignee {
   private String name;
   private String email;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "id", fetch = FetchType.EAGER)
+  @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "assignee", fetch = FetchType.LAZY)
+  // halmozott cascade, mint minden annotation-nél
+  // cascade .save-nél,
+  // mappedBy = "assignee" - assignee szolgáltatja a foreign kulcsot a todosban
+  // fetch LAZY?!
   private List<Todo> todos;
 
   public Assignee() {
@@ -37,6 +41,7 @@ public class Assignee {
   }
 
   public void addTodo(Todo todo){
+    todo.setAssignee(this);
     todos.add(todo);
   }
 
@@ -62,5 +67,10 @@ public class Assignee {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  @Override
+  public String toString() {
+    return this.getName();
   }
 }

@@ -11,7 +11,7 @@ public class Todo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private Long id;
   private String title;
   private boolean urgent = false;
   private boolean done = false;
@@ -33,11 +33,19 @@ public class Todo {
     this.done = done;
   }
 
-  public long getId() {
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
+  }
+
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -64,4 +72,12 @@ public class Todo {
   public void setDone(boolean done) {
     this.done = done;
   }
+
+  /*public String getAssigneeName() {
+    return assigneeName;
+  }
+
+  public void setAssigneeName(String assigneeName) {
+    this.assigneeName = assigneeName;
+  }*/
 }

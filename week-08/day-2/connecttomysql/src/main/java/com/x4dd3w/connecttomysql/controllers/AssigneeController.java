@@ -3,6 +3,7 @@ package com.x4dd3w.connecttomysql.controllers;
 import com.x4dd3w.connecttomysql.models.Assignee;
 import com.x4dd3w.connecttomysql.repositories.AssigneeRepository;
 import com.x4dd3w.connecttomysql.services.AssigneeService;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,7 @@ public class AssigneeController {
 
   @GetMapping("/{id}/deleteAssignee")
   public String deleteAssignee(@PathVariable Long id) {
+    assigneerepository.findById(id).get().getTodos().stream().forEach(todo -> todo.setAssignee(null));
     assigneerepository.deleteById(id);
     return "redirect:/todo/assignees";
   }
@@ -50,5 +52,12 @@ public class AssigneeController {
   public String returnTodoList(@ModelAttribute Assignee assignee) {
     assigneerepository.save(assignee);
     return "redirect:/todo/assignees";
+  }
+
+  @GetMapping("/{id}/assigneeToDos")
+  public String assigneesTodos(@PathVariable Long id, Model model) {
+    model.addAttribute("todos", assigneerepository.findById(id).get().getTodos().stream().collect(
+        Collectors.toList()));
+    return "todolist";
   }
 }

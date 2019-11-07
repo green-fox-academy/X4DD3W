@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ToDoController {
 
   @Autowired
-  private ToDoRepository repository;
+  private ToDoRepository toDoRepository;
 
   @Autowired
   private AssigneeRepository assigneerepository;
@@ -30,7 +30,7 @@ public class ToDoController {
   @GetMapping({"/", "/list", ""})
   public String list(Model model, @RequestParam(required = false) Boolean isActive) {
     if (isActive == null) {
-      model.addAttribute("todos", repository.findAll());
+      model.addAttribute("todos", toDoRepository.findAll());
     } else {
       model.addAttribute("todos", service.showActiveToDos(isActive));
     }
@@ -44,25 +44,27 @@ public class ToDoController {
 
   @PostMapping("/add")
   public String saveNewTodo(@ModelAttribute(name = "todo") Todo todo) {
-    repository.save(todo);
+    toDoRepository.save(todo);
     return "redirect:/todo/";
   }
 
   @GetMapping("/{id}/delete")
   public String deleteTodo(@PathVariable Long id) {
-    repository.deleteById(id);
+    toDoRepository.deleteById(id);
     return "redirect:/todo/";
   }
 
   @GetMapping("/{id}/edit")
   public String editTodo(@PathVariable Long id, Model model) {
     model.addAttribute("todo", service.findById(id));
+    model.addAttribute("assignees", assigneerepository.findAll());
     return "edit";
   }
 
   @PostMapping("/{id}/edit")
-  public String returnTodoList(@ModelAttribute(name = "todo") Todo todo) {
-    repository.save(todo);
+  public String returnTodoList(@ModelAttribute(name = "todo") Todo todo, @RequestParam(name = "assigneeId", required = false) Long assigneeId) {
+    todo.setAssignee(assigneerepository.findById(assigneeId).orElse(null));
+    toDoRepository.save(todo);
     return "redirect:/todo/";
   }
 

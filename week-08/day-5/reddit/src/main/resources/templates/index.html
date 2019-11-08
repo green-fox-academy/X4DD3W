@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" href="/styles.css">
 <head>
   <meta charset="UTF-8">
   <title>Trending Posts</title>
@@ -14,13 +13,19 @@
     <td>+</td>
     <td>-</td>
     <td>Title</td>
+    <td>Date</td>
   </tr>
   <tr th:each="post: ${posts} ">
     <td th:text="${post.getRating()}"></td>
     <td><a th:href="@{'/' + ${post.getId()} + '/upvote'}">+</a></td>
     <td><a th:href="@{'/' + ${post.getId()} + '/downvote'}">-</a></td>
-    <td><a th:href="@{'http://' + ${post.getLink()}}" th:text="${post.getTitle()}" target="_blank"></a></td>
+    <td><a th:href="@{'http://' + ${post.getLink()}}" th:text="${post.getTitle()}"
+           target="_blank"></a></td>
+    <td th:text="${post.getDate()}"></td>
   </tr>
 </table>
+<a th:href="@{'/' + ${page - 1}}" style="text-decoration: none">previous</a>
+<p th:text="${page}"></p>
+<a th:href="@{'/' + ${page + 1}}" style="text-decoration: none">next</a>
 </body>
 </html>

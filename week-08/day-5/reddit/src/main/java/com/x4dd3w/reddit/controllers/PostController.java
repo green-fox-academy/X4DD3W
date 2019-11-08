@@ -1,7 +1,6 @@
 package com.x4dd3w.reddit.controllers;
 
 import com.x4dd3w.reddit.models.Post;
-import com.x4dd3w.reddit.repositories.PostRepo;
 import com.x4dd3w.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,18 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PostController {
 
   @Autowired
-  private PostRepo postRepo;
-
-  @Autowired
   private PostService postService;
 
-  public PostController(PostRepo postRepo) {
-    this.postRepo = postRepo;
+  public PostController(PostService postService) {
+    this.postService = postService;
   }
 
-  @GetMapping({"", "/",})
-  public String mainPage(Model model) {
-    model.addAttribute("posts", postService.listAllPostsById());
+  @GetMapping({"", "/", "/{page}"})
+  public String mainPage(Model model, @PathVariable(name = "page", required = false) Integer page) {
+    if (page == null || page == 0) {
+      page = 1;
+    }
+    model.addAttribute("posts", postService.listAllPostsById(page));
+    model.addAttribute("page", page);
     return "index";
   }
 
@@ -38,21 +38,19 @@ public class PostController {
 
   @PostMapping("/submit")
   public String saveNewPost(@ModelAttribute Post post) {
-    postRepo.save(post);
+    postService.savePost(post);
     return "redirect:/";
   }
 
   @GetMapping("/{id}/upvote")
-  public String upVotePost(@PathVariable Long id) {
-    postRepo.findById(id).orElse(null).setRating(postRepo.findById(id).orElse(null).getRating() + 1);
-    postRepo.save(postRepo.findById(id).orElse(null));
+  public String upvotePost(@PathVariable Long id) {
+    postService.upvoteAndSaveThePost(id);
     return "redirect:/";
   }
 
   @GetMapping("/{id}/downvote")
-  public String downVotePost(@PathVariable Long id) {
-    postRepo.findById(id).orElse(null).setRating(postRepo.findById(id).orElse(null).getRating() - 1);
-    postRepo.save(postRepo.findById(id).orElse(null));
+  public String downvotePost(@PathVariable Long id) {
+    postService.downvoteAndSaveThePost(id);
     return "redirect:/";
   }
 }

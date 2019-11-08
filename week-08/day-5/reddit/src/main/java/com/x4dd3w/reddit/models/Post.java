@@ -1,9 +1,12 @@
 package com.x4dd3w.reddit.models;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Post {
@@ -14,6 +17,8 @@ public class Post {
   private String title;
   private String link;
   private Integer rating = 0;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date date;
 
   public Post() {
   }
@@ -21,6 +26,7 @@ public class Post {
   public Post(String title, String link) {
     this.title = title;
     this.link = link;
+    this.date = new Date();
   }
 
   public Long getId() {
@@ -53,5 +59,13 @@ public class Post {
 
   public void setLink(String link) {
     this.link = link;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
   }
 }

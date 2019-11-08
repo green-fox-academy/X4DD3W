@@ -5,6 +5,12 @@ import java.util.List;
 
 public interface PostService {
 
-  List<Post> listAllPostsById();
+  List<Post> listAllPostsById(Integer page);
+
+  void savePost(Post post);
+
+  void upvoteAndSaveThePost(Long id);
+
+  void downvoteAndSaveThePost(Long id);
 
 }

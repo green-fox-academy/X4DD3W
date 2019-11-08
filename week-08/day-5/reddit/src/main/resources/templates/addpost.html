@@ -9,11 +9,13 @@
 <h1 th:style="'text-align: center'">Submit a new post</h1>
 <form th:action="@{/submit}" th:method="post" th:object="${post}">
   <th:block>
-  <label>Title:</label>
-  <input type="text" th:field="*{title}" required>
-  <label>URL:</label>
-  <input type="text" th:field="*{link}" required>
-  <button type="submit">Submit</button>
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" required>
+    <label>URL:</label>
+    <input type="text" th:field="*{link}" required>
+    <input type="text" th:field="*{date}" required>
+    <!--Date-et nem ad hozzá még-->
+    <button type="submit">Submit</button>
   </th:block>
 </form>
 <a th:href="@{/}">Back to posts</a>

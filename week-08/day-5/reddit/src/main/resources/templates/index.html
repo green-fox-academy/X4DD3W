@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="/styles.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Trending Posts</title>
+</head>
+<body>
+<a th:href="@{/submit}">Submit new post</a>
+<h1 th:style="'text-align: center'">Trending posts</h1>
+<table th:style="'position: center'">
+  <tr>
+    <td>Id</td>
+    <td>+</td>
+    <td>-</td>
+    <td>Title</td>
+  </tr>
+  <tr th:each="post: ${posts} ">
+    <td th:text="${post.getRating()}"></td>
+    <td><a th:href="@{'/' + ${post.getId()} + '/upvote'}">+</a></td>
+    <td><a th:href="@{'/' + ${post.getId()} + '/downvote'}">-</a></td>
+    <td><a th:href="@{'http://' + ${post.getLink()}}" th:text="${post.getTitle()}" target="_blank"></a></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -32,3 +32,8 @@ INSERT INTO todo (title, done, urgent)
 VALUES ("Ask Vivi to buy fruits for me", false, true); */
 
 SELECT * FROM todo;
+
+SELECT * FROM assignee;
+
+SELECT DISTINCT assignee_id, title FROM assignee, todo;
+

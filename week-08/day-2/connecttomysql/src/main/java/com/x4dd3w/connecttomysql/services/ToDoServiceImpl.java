@@ -34,7 +34,7 @@ public class ToDoServiceImpl implements ToDoService {
   public List<Todo> searched(String search) {
     List<Todo> searched = new ArrayList<>();
     for (Todo todo : repository.findAll()) {
-      if (todo.getTitle().contains(search)) {
+      if (todo.getTitle().contains(search) || (todo.getAssignee().getName().contains(search)) || (todo.getCreated().toString().contains(search))) {
         searched.add(todo);
       }
     }

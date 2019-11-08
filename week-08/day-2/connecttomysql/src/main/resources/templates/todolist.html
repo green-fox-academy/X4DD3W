@@ -13,27 +13,27 @@
 <br>
 <a th:href="@{/todo/add}">Add new todo</a>
 <br>
-
-
 <form th:action="@{/todo/search}" th:method="post" >
   <input type="text" th:name="userInput">
   <button type="submit">search</button>
 </form>
 <table>
   <tr>
-    <th>Title</th>
     <th>Id</th>
+    <th>Title</th>
     <th>Urgent</th>
     <th>Done</th>
     <th>Assignee</th>
+    <th>Created</th>
   </tr>
   <tr th:each="todo : ${todos}">
-    <td th:text="${todo.getTitle()}"></td>
     <td th:text="${todo.getId()}"></td>
+    <td th:text="${todo.getTitle()}"></td>
     <td th:text="${todo.isUrgent()}"></td>
     <td th:text="${todo.isDone()}"></td>
     <td> <a th:if="${todo.assignee != null}" th:href="@{'/todo/' + ${todo.assignee.getId()} + '/assigneeToDos'}" th:text="${todo.assignee.getName()}"></a>
     </td>
+    <td th:text="${todo.getCreated()}"></td>
     <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}">delete</a></td>
     <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>
   </tr>

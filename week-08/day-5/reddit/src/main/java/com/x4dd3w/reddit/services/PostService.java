@@ -13,4 +13,6 @@ public interface PostService {
 
   void downvoteAndSaveThePost(Long id);
 
+  /*int pageSizeChecker();*/
+
 }

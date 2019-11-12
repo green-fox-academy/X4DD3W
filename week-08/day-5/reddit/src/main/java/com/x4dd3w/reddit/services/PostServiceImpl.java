@@ -16,7 +16,7 @@ public class PostServiceImpl implements PostService {
   @Override
   public List<Post> listAllPostsById(Integer page) {
     List<Post> posts = new ArrayList<>();
-    postRepo.sortPostByRating(10 * (page - 1), 10 * page).forEach(posts::add);
+    posts.addAll(postRepo.sortPostByRating(10 * (page - 1), 10 * page));
     return posts;
   }
 
@@ -38,4 +38,11 @@ public class PostServiceImpl implements PostService {
         .setRating(postRepo.findById(id).orElse(null).getRating() - 1);
     postRepo.save(postRepo.findById(id).orElse(null));
   }
+
+ /* @Override
+  public int pageSizeChecker() {
+    // page nem lehet nagyobb a posts mérete % modulo 10-zel
+    return postRepo.findAllPosts().size() / 10;
+  }*/
+
 }

@@ -1,6 +1,9 @@
 package com.x4dd3w.backendapi.controllers;
 
 import com.x4dd3w.backendapi.models.AppendA;
+import com.x4dd3w.backendapi.models.ArrayHandler;
+import com.x4dd3w.backendapi.models.ArrayHandlerInput;
+import com.x4dd3w.backendapi.models.ArrayHandlerListResult;
 import com.x4dd3w.backendapi.models.DoUntil;
 import com.x4dd3w.backendapi.models.DoUntilInput;
 import com.x4dd3w.backendapi.models.Doubling;
@@ -67,6 +70,24 @@ public class APIController {
           .body(new DoUntil(service.factor(until.getUntil())));
     } else {
       return new ResponseEntity(HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @PostMapping("/arrays")
+  public ResponseEntity arrayHandler(@RequestBody ArrayHandlerInput input) {
+    if (input.getWhat() == null || input.getNumbers() == null) {
+      return ResponseEntity.status(HttpStatus.OK).body(new MyError("Please provide what to do with the numbers!"));
+    } else {
+      switch (input.getWhat()) {
+        case "sum":
+          return ResponseEntity.status(HttpStatus.OK).body(new ArrayHandler(service.sumArray(input.getNumbers())));
+        case "multiply":
+          return ResponseEntity.status(HttpStatus.OK).body(new ArrayHandler(service.multiplyArray(input.getNumbers())));
+        case "double":
+          return ResponseEntity.status(HttpStatus.OK).body(new ArrayHandlerListResult(service.doubleArray(input.getNumbers())));
+        default:
+          return new ResponseEntity(HttpStatus.BAD_REQUEST);
+      }
     }
   }
 }

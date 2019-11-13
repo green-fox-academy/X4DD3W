@@ -15,7 +15,6 @@ import com.x4dd3w.backendapi.models.SithText;
 import com.x4dd3w.backendapi.models.YodaSpeak;
 import com.x4dd3w.backendapi.repositories.LogRepo;
 import com.x4dd3w.backendapi.services.APIService;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

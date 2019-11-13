@@ -54,18 +54,9 @@ public class ServiceImpl implements APIService {
     }
     return result;
   }
-
-  //  "text": "This is my example sentence. Just for fun."
-  //And responds with a simplified yoda speak simply switching every 2 words:
-  //  "sith_text": "Is this example my sentence. Arrgh. Uhmm. For just fun. Err..err.err."
-
-  //it keeps the capital positions and the end of sentences
-  //if a sentence doesn't contain even number of words, it leaves the last as is
-  //always puts (one or two) random things at the end of sentences
-
+  
   @Override
   public String translateToSith(SithText textToTranslate) {
-    // "Ez lesz a példamondatom. Vagy esetleg emez."
     Random random = new Random();
     List<String> randomThings = new ArrayList<>(
         Arrays.asList(" Err... err.", " Yuhuu.", " Muahaha..."));

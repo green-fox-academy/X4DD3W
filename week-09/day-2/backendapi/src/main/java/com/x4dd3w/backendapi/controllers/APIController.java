@@ -8,8 +8,15 @@ import com.x4dd3w.backendapi.models.DoUntil;
 import com.x4dd3w.backendapi.models.DoUntilInput;
 import com.x4dd3w.backendapi.models.Doubling;
 import com.x4dd3w.backendapi.models.Greeter;
+import com.x4dd3w.backendapi.models.Log;
+import com.x4dd3w.backendapi.models.LogEntry;
 import com.x4dd3w.backendapi.models.MyError;
-import com.x4dd3w.backendapi.services.Service;
+import com.x4dd3w.backendapi.models.SithText;
+import com.x4dd3w.backendapi.models.YodaSpeak;
+import com.x4dd3w.backendapi.repositories.LogRepo;
+import com.x4dd3w.backendapi.services.APIService;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +30,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class APIController {
 
+  private APIService service;
+  private LogRepo logRepo;
+
   @Autowired
-  Service service;
+  public APIController(APIService service, LogRepo logRepo) {
+    this.service = service;
+    this.logRepo = logRepo;
+  }
 
   @GetMapping("/doubling")
   public ResponseEntity<Object> doubling(@RequestParam(required = false) Integer input) {
+    Log log = new Log("/doubling", "input=" + input);
+    logRepo.save(log);
     if (input != null) {
       return ResponseEntity.status(HttpStatus.OK).body(new Doubling(input));
     } else {
@@ -37,6 +52,7 @@ public class APIController {
 
   @GetMapping("/greeter")
   public ResponseEntity<Object> greeter(@RequestParam(required = false) String name, String title) {
+    logRepo.save(new Log("/greeter", "name=" + name + ", " + "title=" + title));
     if (name == null && title == null) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST)
           .body(new MyError("Please provide a name and a title!"));
@@ -53,6 +69,7 @@ public class APIController {
 
   @GetMapping("/appenda/{appendable}")
   public ResponseEntity appendA(@PathVariable(required = false) String appendable) {
+    logRepo.save(new Log("/appenda/" + appendable, "input=" + appendable));
     if (appendable == null) {
       return new ResponseEntity(HttpStatus.NOT_FOUND);
     } else {
@@ -63,6 +80,7 @@ public class APIController {
   @PostMapping("/dountil/{action}")
   public ResponseEntity doUntil(@PathVariable(required = false) String action,
       @RequestBody DoUntilInput until) {
+    logRepo.save(new Log("/dountil/" + action, "until=" + until.getUntil()));
     if (action.equals("sum")) {
       return ResponseEntity.status(HttpStatus.OK).body(new DoUntil(service.sum(until.getUntil())));
     } else if (action.equals("factor")) {
@@ -75,6 +93,7 @@ public class APIController {
 
   @PostMapping("/arrays")
   public ResponseEntity arrayHandler(@RequestBody ArrayHandlerInput input) {
+    logRepo.save(new Log("/arrays", "what=" + input.getWhat() + "," + "numbers=" + input.getNumbers()));
     if (input.getWhat() == null || input.getNumbers() == null) {
       return ResponseEntity.status(HttpStatus.OK).body(new MyError("Please provide what to do with the numbers!"));
     } else {
@@ -90,4 +109,19 @@ public class APIController {
       }
     }
   }
+
+  @GetMapping("/log")
+  public ResponseEntity logger() {
+    return ResponseEntity.status(HttpStatus.OK).body(new LogEntry((List<Log>) logRepo.findAll()));
+  }
+
+  @PostMapping("/sith")
+  public ResponseEntity sithTranslator(@RequestBody(required = false) SithText text) {
+    if (text == null || text.getText().isEmpty()) {
+      return ResponseEntity.status(HttpStatus.OK).body(new MyError("Feed me some text you have to, padawan young you are. Hmmm."));
+    } else {
+      return ResponseEntity.status(HttpStatus.OK).body(new YodaSpeak(service.translateToSith(text)));
+    }
+  }
 }
+

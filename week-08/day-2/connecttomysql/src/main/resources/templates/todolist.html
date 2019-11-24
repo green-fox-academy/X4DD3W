@@ -2,32 +2,60 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" type="text/css" href="/styles.css">
 <head>
+  <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
   <meta charset="UTF-8">
   <title>Todo CRUD App</title>
 </head>
 <body>
+<div class="mx-auto">
 <h1>Todos for today</h1>
-<a th:href="@{/todo/}">List of Todos</a>
+<!--<a th:href="@{/todo/}">List of Todos</a>
 <br>
 <a th:href="@{/todo/assignees}">List of Assignees</a>
 <br>
 <a th:href="@{/todo/add}">Add new todo</a>
-<br>
-<form th:action="@{/todo/search}" th:method="post" >
+<br>-->
+<button type="button" class="btn btn-success" th:style="'text-decoration: none'"><a th:href="@{/todo/}">List of Todos</a></button>
+<button type="button" class="btn btn-success" th:style="'text-decoration: none'"><a th:href="@{/todo/assignees}">List of Assignees</a></button>
+<button type="button" class="btn btn-success" th:style="'text-decoration: none'"><a th:href="@{/todo/add}">Add new todo</a></button>
+</div>
+<div class="w-75 p-3">
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline" th:action="@{/todo/search}" th:method="post">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" th:name="userInput">
+    <button class="btn btn-dark" type="submit">Search</button>
+  </form>
+</nav>
+</div>
+
+<!--<form th:action="@{/todo/search}" th:method="post" >
   <input type="text" th:name="userInput">
   <button type="submit">search</button>
-</form>
-<table>
-  <tr>
+</form>-->
+<div class="w-75 p-3">
+<table class="table table-hover" th:style="'text-align : center'">
+  <thead class="thead-dark">
+ <!-- <tr>
     <th>Id</th>
     <th>Title</th>
     <th>Urgent</th>
     <th>Done</th>
     <th>Assignee</th>
     <th>Created</th>
+  </tr>-->
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Title</th>
+    <th scope="col">Urgent</th>
+    <th scope="col">Done</th>
+    <th scope="col">Assignee</th>
+    <th scope="col">Created</th>
+    <th scope="col" colspan="2">Action</th>
   </tr>
+  </thead>
+  <tbody>
   <tr th:each="todo : ${todos}">
-    <td th:text="${todo.getId()}"></td>
+    <td class="font-weight-bold" th:text="${todo.getId()}"></td>
     <td th:text="${todo.getTitle()}"></td>
     <td th:text="${todo.isUrgent()}"></td>
     <td th:text="${todo.isDone()}"></td>
@@ -37,6 +65,10 @@
     <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}">delete</a></td>
     <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">edit</a></td>
   </tr>
+  </tbody>
 </table>
+</div>
 </body>
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 </html>

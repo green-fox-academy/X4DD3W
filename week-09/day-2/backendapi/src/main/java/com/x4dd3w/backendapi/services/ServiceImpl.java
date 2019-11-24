@@ -54,7 +54,7 @@ public class ServiceImpl implements APIService {
     }
     return result;
   }
-  
+
   @Override
   public String translateToSith(SithText textToTranslate) {
     Random random = new Random();

@@ -19,7 +19,7 @@ public class Todo {
   private boolean urgent = false;
   private boolean done = false;
   @Temporal(TemporalType.TIMESTAMP)
-  private Date created;
+  private Date created = new Date();
 
   @ManyToOne()
   private Assignee assignee;
@@ -29,14 +29,12 @@ public class Todo {
 
   public Todo(String title) {
     this.title = title;
-    this.created = new Date();
   }
 
   public Todo(String title, boolean urgent, boolean done) {
     this.title = title;
     this.urgent = urgent;
     this.done = done;
-    this.created = new Date();
   }
 
   public Assignee getAssignee() {

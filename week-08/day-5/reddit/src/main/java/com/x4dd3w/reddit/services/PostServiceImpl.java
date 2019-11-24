@@ -27,22 +27,15 @@ public class PostServiceImpl implements PostService {
 
   @Override
   public void upvoteAndSaveThePost(Long id) {
-    postRepo.findById(id).orElse(null)
-        .setRating(postRepo.findById(id).orElse(null).getRating() + 1);
-    postRepo.save(postRepo.findById(id).orElse(null));
+    Post postToUpvote = postRepo.findById(id).orElse(null);
+    postToUpvote.setRating(postToUpvote.getRating() + 1);
+    postRepo.save(postToUpvote);
   }
 
   @Override
   public void downvoteAndSaveThePost(Long id) {
-    postRepo.findById(id).orElse(null)
-        .setRating(postRepo.findById(id).orElse(null).getRating() - 1);
-    postRepo.save(postRepo.findById(id).orElse(null));
+    Post postToDownvote = postRepo.findById(id).orElse(null);
+    postToDownvote.setRating(postToDownvote.getRating() - 1);
+    postRepo.save(postToDownvote);
   }
-
- /* @Override
-  public int pageSizeChecker() {
-    // page nem lehet nagyobb a posts mérete % modulo 10-zel
-    return postRepo.findAllPosts().size() / 10;
-  }*/
-
 }

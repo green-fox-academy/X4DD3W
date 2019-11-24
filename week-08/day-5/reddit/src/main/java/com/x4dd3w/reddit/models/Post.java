@@ -21,6 +21,7 @@ public class Post {
   private Date date;
 
   public Post() {
+    this.date = new Date();
   }
 
   public Post(String title, String link) {

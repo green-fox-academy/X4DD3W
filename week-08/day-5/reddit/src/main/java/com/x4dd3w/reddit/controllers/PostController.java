@@ -25,7 +25,6 @@ public class PostController {
     if (page == null || page == 0) {
       page = 1;
     }
-    // th:if, ha a page... és nem jelenik meg a gomb? egyszerűbb?
     model.addAttribute("posts", postService.listAllPostsById(page));
     model.addAttribute("page", page);
     return "index";

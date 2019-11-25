@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GuardianController {
 
   @GetMapping("/groot")
-  public ResponseEntity<?> valami(@RequestParam(required = false) String message) {
-    if (message == null || message.equals("")) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new MyError("Balfasz!"));
+  public ResponseEntity<?> grootTranslator(@RequestParam(required = false) String received) {
+    if (received == null || received.equals("")) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new MyError());
     } else {
-      return ResponseEntity.status(HttpStatus.OK).body(new TranslatedToGroot(message));
+      return ResponseEntity.status(HttpStatus.OK).body(new TranslatedToGroot(received));
     }
   }
 }

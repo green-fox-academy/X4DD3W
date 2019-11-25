@@ -1,18 +1,21 @@
 package com.groot.demo.models;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class MyError {
 
-  private String error;
+  private String error = "I am Groot!";
 
   public MyError() {
   }
 
   public MyError(String error) {
+    this.error = error;
+  }
+
+  public String getError() {
+    return error;
+  }
+
+  public void setError(String error) {
     this.error = error;
   }
 }

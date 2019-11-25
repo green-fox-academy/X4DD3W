@@ -21,18 +21,20 @@ public class GuardianControllerTest {
   private MockMvc mockMvc;
 
   @Test
-  public void GuardianController_WithGivingParameter() throws Exception {
-    mockMvc.perform(get("/groot")
-        .param("message", "lol!"))
+  public void GuardianControllerTest_WithGivingParameter() throws Exception {
+    mockMvc.perform(get("/groot").param("received", "lol"))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.received", is("lol!")))
+        .andExpect(jsonPath("$.received", is("lol")))
         .andExpect(jsonPath("$.translated", is("I am Groot!")));
   }
 
-  //Write the below tests:
-  //With giving a parameter:
-    //the status is ok
-    //the given response is the same as expected
+  @Test
+  public void GuardianControllerTest_WithoutGivingParameter() throws Exception {
+    mockMvc.perform(get("/groot"))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.error", is("I am Groot!")));
+  }
+
   //Without giving a parameter:
   //the status is not ok
   //the given error response is the same as expected

@@ -35,8 +35,21 @@ public class GuardianControllerTest {
         .andExpect(jsonPath("$.error", is("I am Groot!")));
   }
 
-  //Without giving a parameter:
-  //the status is not ok
-  //the given error response is the same as expected
+  @Test
+  public void YonduTest_WithGivingParameter() throws Exception {
+    mockMvc.perform((get("/yondu")
+        .param("distance", "100.0")
+        .param("time", "10.0")))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.distance", is(100.0)))
+        .andExpect(jsonPath("$.time", is(10.0)))
+        .andExpect(jsonPath("$.speed", is(10.0)));
+  }
 
+  @Test
+  public void YonduTest_WithoutGivingParameter() throws Exception {
+    mockMvc.perform((get("/yondu")))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.error", is("I'm Mary Poppins, Y'all!")));
+  }
 }
